@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Unbounded", sans-serif; 
+    font-weight: 800;
+    color: #fff;
+    background-color: #262E31;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    max-width: 100dvw;
+    height: 100dvh;
+    position: relative;
+}
+
+#left-tetris {
+    float: left;
+    margin-left: 1%;
+    height: calc(100% - 60px - 35px);
+}
+
+#right-tetris {
+    float: right;
+    margin-right: 1%;
+    height: calc(100% - 60px - 35px);
+}
+
+h1 {
+    font-size: 6dvw;
+    text-align: center;
+    border-top: 5px solid #CCA546;
+    border-bottom: 5px solid #CCA546;
+    padding: 15px 10px;
+}
+
+.container {
+    position: absolute;
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.blue-line {
+    max-width: 100dvw;
+    border-top: 35px solid #4683BA;
+}
+
+#top-line {
+    margin-bottom: 0.8%;
+    border-bottom-right-radius: 29px;
+    border-bottom-left-radius: 29px;
+}
+
+#first-center-line {
+    width: 99dvw;
+    position: absolute;
+    bottom: 0;
+    border-top-right-radius: 29px;
+    border-top-left-radius: 29px;
+}
+
+.yellow-line {
+    width: 43px;
+    border-top: 5px solid #CCA546;
+}
+
+#learn-more {
+    background: #BE4848;
+    color: #fff;
+    font-family: "Unbounded", sans-serif; 
+    font-size: 2.3dvh;
+    font-weight: 700;
+    border-radius: 60px;
+    width: 19dvw;
+    height: 10dvh;
+    border-width: 10px;
+    border-color: #952336;
+    transition: 500ms;
+    cursor: pointer;
+}
+
+/* эффект наведения на кнопку */
+.container button:hover {
+    transform: scale(1.1);
+}
+
+#second-center-line {
+    width: 99dvw;
+    border-bottom-right-radius: 29px;
+    border-bottom-left-radius: 29px;
+    margin-bottom: 1dvh;
+}
+
+.algorithms img {
+    width: 48dvw;
+    margin-top: 1.5dvh;
+    transition: 500ms;
+    cursor: pointer;
+    border: 0.2px solid #454545;
+}
+
+.algorithms img:hover {
+    transform: scale(0.9);
+}
+
+.pair {
+    display: flex;
+    margin-left: 1dvw;
+    margin-right: 1dvw;
+    justify-content: space-between;
+}
+
+#bottom-line {
+    margin-top: 1.7%;
+    border-top-right-radius: 29px;
+    border-top-left-radius: 29px;
+}
