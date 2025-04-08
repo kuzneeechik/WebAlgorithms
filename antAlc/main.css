@@ -12,15 +12,35 @@ body {
 }
 
 .header-container {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100px;
+    background-color: black;
+    padding-left: 100px;
 }
 
+.antHead {
+    position: absolute;
+    left: 20px;
+    height: 80px;
+    width: auto;
+    max-height: 80%;
+    top: 50%;
+    transform: translateY(-50%);
+    object-fit: contain;
+}
+.text-container {
+    width: 100%;
+    font-size: 20px ;
+    text-align: center;
+    margin-left: -100px; 
+}
 h1 {
-    font-size: 40px;
-    color: rgb(247, 195, 233);
-    margin: 0; 
+    margin: 0;
+    padding: 0;
+    color: rgb(247, 195, 233); 
 }
 
 .gradient-container {
