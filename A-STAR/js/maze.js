@@ -36,9 +36,6 @@ export function generateMaze(size)
         map.push(row);
     }
 
-    getElementOfCssGrid(0, 0, size).classList.toggle("cell-start-finish");
-    getElementOfCssGrid(size - 1, size - 1, size).classList.toggle("cell-start-finish");
-
     function isEven (num)
     {
         return num % 2 === 0;
@@ -191,9 +188,11 @@ export function generateMaze(size)
         }
     }
 
-    
     map[0][0] = "start";
     map[size - 1][size - 1] = "finish";
+
+    getElementOfCssGrid(0, 0, size).classList.toggle("cell-start");
+    getElementOfCssGrid(size - 1, size - 1, size).classList.toggle("cell-finish");
 }
 
 generateMaze(21);

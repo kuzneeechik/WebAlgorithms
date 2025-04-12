@@ -50,8 +50,22 @@ a {
     opacity: 0.8;
 }
 
-.cell-start-finish {
-    background-color: #C95F5F;
+.cell-start {
+    background-color: #F27928;
+}
+
+.cell-start:hover {
+    background-color: #F27928 !important;
+    opacity: 0.8;
+}
+
+.cell-finish {
+    background-color: #EF474A;
+}
+
+.cell-finish:hover {
+    background-color: #EF474A !important;
+    opacity: 0.8;
 }
 
 @media (max-width: 1500px) {
