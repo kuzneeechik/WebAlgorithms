@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Unbounded", sans-serif; 
+    font-weight: 800;
+    color: #fff;
+    background-color: #262E31;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.maze {
+    height: 60dvh;
+    width: 60dvh;
+    display: grid;
+}
+
+.algorithm {
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell {
+    border: 1px solid gray;
+    background-color: #fff;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.cell:hover {
+    background-color: #E5C067;
+}
+
+.cell-clicked {
+    background-color: #7BBD5C;
+}
+
+.cell-clicked:hover {
+    background-color: #7BBD5C !important;
+    opacity: 0.8;
+}
+
+.cell-start-finish {
+    background-color: #C95F5F;
+}
+
+@media (max-width: 1500px) {
+    .maze {
+        height: 52dvh;
+        width: 52dvh; 
+    }
+}
+
+@media (max-width: 850px)
+{
+    .maze {
+        height: 45dvw;
+        width: 45dvw; 
+    }
+}
