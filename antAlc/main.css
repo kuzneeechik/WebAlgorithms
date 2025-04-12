@@ -5,10 +5,11 @@ html {
 }
 
 body {
-    background-color: #070707; 
-    color: white; 
-    margin: 0; 
-    overflow: hidden; 
+    background-image: linear-gradient(to bottom, #ff69b4, #87ceeb);
+    background-color: #070707;
+    color: white;
+    margin: 0;
+    overflow: hidden;
 }
 
 .header-container {
@@ -35,36 +36,36 @@ body {
     width: 100%;
     font-size: 20px ;
     text-align: center;
-    margin-left: -100px; 
+    margin-left: -100px;
 }
 h1 {
     margin: 0;
     padding: 0;
-    color: rgb(247, 195, 233); 
+    color: rgb(247, 195, 233);
 }
 
 .gradient-container {
-    background-image: linear-gradient(to bottom, #ff69b4, #87ceeb); 
-    height: 100vh; 
+
+    height: 100vh;
     display: flex;
-    flex-direction: column; 
-    justify-content: flex-start; 
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .antHead {
-    width: 15%; 
-    height: auto; 
-    margin-right: 20px; 
+    width: 15%;
+    height: auto;
+    margin-right: 20px;
 
 }
 
 #canVas {
-    border: 7px solid rgb(22, 32, 71); 
-    background-image: linear-gradient(to bottom, #b5b3e2, #6255d3, #1b114b);
-    width: 600px; 
-    height: 400px; 
-    margin-top: 40px; 
+    border: 7px solid rgb(22, 32, 71);
+    background-color: #6255d3;
+    width: 600px;
+    height: 400px;
+    margin-top: 40px;
 }
 
 .buttons {
@@ -73,20 +74,20 @@ h1 {
     margin-top: 100px;
 }
 
-.button {
-    border: 3px solid rgb(167, 31, 128); 
-    background-color: #ffc0cb; 
-    border-radius: 100px; 
-    padding: 2em 4em; 
+.buttonsFor {
+    border: 3px solid rgb(167, 31, 128);
+    background-color: #ffc0cb;
+    border-radius: 100px;
+    padding: 2em 4em;
     cursor: pointer;
     font-size: 14px;
     color: rgb(80, 27, 66);
-    transition: transform 0.5s, color 0.5s, background-color 0.5s; 
+    transition: transform 0.5s, color 0.5s, background-color 0.5s;
 }
 
-.button:hover {
-    background-color: #c62ba5; 
-    border: 3px solid rgb(239, 135, 188); 
-    color: white; 
-    transform: scale(1.2); 
+.buttonsFor:hover {
+    background-color: #c62ba5;
+    border: 3px solid rgb(239, 135, 188);
+    color: white;
+    transform: scale(1.2);
 }
