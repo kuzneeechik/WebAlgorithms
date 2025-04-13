@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+body {
+    margin: 0; 
+    padding: 0;
+    height: 100vh; 
+    overflow: hidden; 
+    background: #000; 
+    color: rgb(94, 255, 0);
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start; 
+}
+
+h1 {
+    text-shadow: 0 0 15px #39FF14; 
+    margin: 20px 0; 
+    font-size: 2.5em; 
+    text-align: center;
+}
+
+hr {
+    border: none; 
+    height: 1px; 
+    background-color: #1c680e;
+    width: 100%; 
+}
+
+#canvas {
+    border: 2px solid #1c680e; 
+    cursor: crosshair; 
+    background-color: #000; 
+    margin-top: 3%; 
+}
+
+.container { 
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; 
+    justify-content: center; 
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-top: 10px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.controls label {
+    color: #39FF14; 
+    margin-left: 15px; 
+}
+
+.controls input[type="number"] {
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: rgb(94, 255, 0); 
+    border: 1px solid #1c680e; 
+    padding: 8px 12px; 
+    border-radius: 4px; 
+    text-align: center; 
+    margin-left: 5px;
+}
+
+button {
+    padding: 12px 25px; 
+    font-size: 1.1em; 
+    background: transparent;
+    color: #39FF14; 
+    border: 2px solid #1c680e; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: all 0.3s; 
+    margin-right: 10px; 
+}
+
+button:hover { 
+    background: #39FF14; 
+    color: #000; 
+    box-shadow: 0 0 15px #39FF14;
+}
