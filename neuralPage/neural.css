@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    overflow: hidden; 
+    background: #000;
+    color: #0ff;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-shadow: 0 0 15px #0ff;
+    margin: 20px 0;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #0ff; 
+  }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 140px); 
+    gap: 40px;
+}
+
+#canvas {
+    background: #000;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 20px #0ff;
+    cursor: crosshair;
+    touch-action: none;
+    width: 280px;
+    height: 280px;
+    image-rendering: pixelated;
+}
+
+.digits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.digit {
+    font-size: 2em;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(0, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.digit.active {
+    background: #0ff;
+    box-shadow: 0 0 25px #0ff;
+    color: #000;
+}
+
+.buttons {
+    position: fixed;
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    background: transparent;
+    color: #0ff;
+    border: 2px solid #0ff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #0ff;
+    color: #000;
+    box-shadow: 0 0 15px #0ff;
+}
