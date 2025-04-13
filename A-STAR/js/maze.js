@@ -16,8 +16,6 @@ export function resizeMaze(size)
     }
 }
 
-resizeMaze(21);
-
 export let map = [];
 
 export function generateMaze(size)
@@ -194,5 +192,3 @@ export function generateMaze(size)
     getElementOfCssGrid(0, 0, size).classList.toggle("cell-start");
     getElementOfCssGrid(size - 1, size - 1, size).classList.toggle("cell-finish");
 }
-
-generateMaze(21);

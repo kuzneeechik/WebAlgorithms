@@ -24,10 +24,26 @@ a {
 }
 
 .algorithm {
-    height: 100dvh;
+    height: 89dvh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 1500px) {
+    .maze {
+        height: 52dvh;
+        width: 52dvh; 
+    }
+}
+
+@media (max-width: 850px)
+{
+    .maze {
+        height: 45dvw;
+        width: 45dvw; 
+    }
 }
 
 .cell {
@@ -51,7 +67,7 @@ a {
 }
 
 .cell-start {
-    background-color: #F27928;
+    background-color: #F27928 !important;
 }
 
 .cell-start:hover {
@@ -59,8 +75,8 @@ a {
     opacity: 0.8;
 }
 
-.cell-finish {
-    background-color: #EF474A;
+.cell-finish, .cell-way {
+    background-color: #EF474A !important;
 }
 
 .cell-finish:hover {
@@ -68,17 +84,105 @@ a {
     opacity: 0.8;
 }
 
-@media (max-width: 1500px) {
-    .maze {
-        height: 52dvh;
-        width: 52dvh; 
-    }
+.cell-process {
+    background-color: #F9FF8A; 
 }
 
-@media (max-width: 850px)
-{
-    .maze {
-        height: 45dvw;
-        width: 45dvw; 
-    }
+.cell-border {
+    background-color: #FF934B;
+}
+
+.right-container {
+    position: relative;
+    width: 32dvw;
+    height: 89dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 7dvh;
+}
+
+.left-container {
+    position: relative;
+    width: 32dvw;
+    height: 89dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    /* gap: 70px; */
+}
+
+.center-container {
+    position: relative;
+    height: 89dvh;
+    width: 60dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    max-width: 100dvw;
+    height: 11dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 36dvw;
+    background-color: #4683BA;
+}
+
+h1 {
+    font-size: 4dvw;
+}
+
+#learn-more {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+#learn-more:hover {
+    transform: scale(1.05);
+}
+
+#back {
+    transition: 500ms;
+}
+
+#back:hover {
+    transform: scale(1.05);
+}
+
+.algorithm button {
+    background: #BE4848;
+    color: #fff;
+    font-family: "Unbounded", sans-serif; 
+    font-size: 2.3dvh;
+    font-weight: 700;
+    border-radius: 60px;
+    width: 19dvw;
+    height: 10dvh;
+    border-width: 10px;
+    border-color: #952336;
+    transition: 500ms;
+    cursor: pointer;
+}
+
+.algorithm button:hover {
+    transform: scale(1.1);
+}
+
+
+#to-run {
+    background: #5ab62f;
+    border-color: #2B8600;
+}
+
+#create-maze {
+    background: #5553CF;
+    border-color: #200f7e;
 }

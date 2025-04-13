@@ -1,10 +1,15 @@
 import { resizeMaze, map, generateMaze } from "./maze.js";
 import { PriorityQueue } from "./priorityQueue.js";
 
-let size = 5;
+let size = 15; /* изначальный размер */
 
-resizeMaze(size);
-generateMaze(size);
+resizeMaze(size); /* при изменении размера запускать */
+
+const createMaze = document.querySelector('#create-maze');
+const generate = () => {generateMaze(size);
+    console.log(map)};
+createMaze.addEventListener('click', generate);
+/* generateMaze(size);  *//* запускать при нажатии кнопки */
 
 let graph = [];
 
@@ -26,7 +31,7 @@ function aStar(map, size)
                 row.push(1);
             }
 
-            if (map[i][j] === "wall")
+            if (map[i][j] === "wall") /* или если кликнутая */
             {
                 row.push(0);
             }
@@ -44,6 +49,14 @@ function aStar(map, size)
             }
         }
         graph.push(row);
+    }
+
+    function getElementOfCssGrid(x, y, size) 
+    {
+        const index = size * x + y;
+        const cells = document.querySelectorAll(".maze .cell");
+    
+        return cells[index];
     }
 
     let queue = new PriorityQueue;
@@ -102,10 +115,10 @@ function aStar(map, size)
             if (distanceFromStart[neighbor] === undefined || newDistance < distanceFromStart[neighbor])
             {
                 distanceFromStart[neighbor] = newDistance;
-
+                
                 let priority = newDistance + heuristic(finish, neighbor, size);
                 queue.addItem(neighbor, priority);
-
+                
                 cameFrom[neighbor] = current.number;
             }
         }
@@ -118,8 +131,10 @@ function aStar(map, size)
     while (currentCell != start)
     {
         currentCell = cameFrom[currentCell];
-        way.push(currentCell);
+        way.push(currentCell); 
     }
+
+    /* console.log(way); */
 }
 
 aStar(map, size);
