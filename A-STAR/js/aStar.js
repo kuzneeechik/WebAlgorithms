@@ -1,15 +1,16 @@
 import { resizeMaze, map, generateMaze } from "./maze.js";
 import { PriorityQueue } from "./priorityQueue.js";
 
-let size = 15; /* изначальный размер */
-
-resizeMaze(size); /* при изменении размера запускать */
+let size = 5;
+resizeMaze(size);
 
 const createMaze = document.querySelector('#create-maze');
-const generate = () => {generateMaze(size);
-    console.log(map)};
+const generate = () => generateMaze(size);
 createMaze.addEventListener('click', generate);
-/* generateMaze(size);  *//* запускать при нажатии кнопки */
+
+const cleanMaze = document.querySelector('#clean');
+const clean = () => resizeMaze(size);
+cleanMaze.addEventListener('click', clean);
 
 let graph = [];
 
@@ -31,7 +32,7 @@ function aStar(map, size)
                 row.push(1);
             }
 
-            if (map[i][j] === "wall") /* или если кликнутая */
+            if (map[i][j] === "wall")
             {
                 row.push(0);
             }
@@ -49,14 +50,6 @@ function aStar(map, size)
             }
         }
         graph.push(row);
-    }
-
-    function getElementOfCssGrid(x, y, size) 
-    {
-        const index = size * x + y;
-        const cells = document.querySelectorAll(".maze .cell");
-    
-        return cells[index];
     }
 
     let queue = new PriorityQueue;
@@ -134,7 +127,10 @@ function aStar(map, size)
         way.push(currentCell); 
     }
 
-    /* console.log(way); */
+    console.log(map);
+    console.log(way);
 }
 
-aStar(map, size);
+const toRun = document.querySelector('#to-run');
+const runAStar = () => aStar(map, size);
+toRun.addEventListener('click', runAStar);

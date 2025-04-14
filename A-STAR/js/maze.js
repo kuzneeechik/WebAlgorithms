@@ -1,5 +1,98 @@
 const maze = document.querySelector(".maze");
 
+function setWall(num, size)
+{
+    const i = Math.floor(num / size);
+    const j = num % size;
+    
+    map[i][j] = map[i][j] === "wall" ? "clean" : "wall"; 
+}
+
+let start = 0;
+let finish = null;
+let startFlag = true;
+let finishFlag = true;
+
+function changeStyle (cell, num, size)
+{
+    if (cell.classList.contains("cell-start"))
+    {
+        startFlag = !startFlag;
+        cell.classList.toggle("blink-cell");
+
+        finishFlag = true;
+        const iFinish = Math.floor(finish / size);
+        const jFinish = finish % size;
+        getElementOfCssGrid(iFinish, jFinish, size).classList.remove("blink-cell");
+    }
+
+    else if (cell.classList.contains("cell-finish"))
+    {
+        finishFlag = !finishFlag;
+        cell.classList.toggle("blink-cell");
+
+        startFlag = true;
+        const iStart = Math.floor(start / size);
+        const jStart = start % size;
+        getElementOfCssGrid(iStart, jStart, size).classList.remove("blink-cell");
+    }
+
+    else
+    {
+        if (!startFlag)
+        {
+            cell.classList.add("cell-start");
+
+            const iCell = Math.floor(num / size);
+            const jCell = num % size;
+
+            const iStart = Math.floor(start / size);
+            const jStart = start % size;
+
+            map[iCell][jCell] = "start";
+            map[iStart][jStart] = "clean";
+
+            getElementOfCssGrid(iStart, jStart, size).className = "cell";
+
+            startFlag = true;
+            start = num;
+        }
+
+        else if (!finishFlag)
+        {
+            cell.classList.add("cell-finish");
+
+            const iCell = Math.floor(num / size);
+            const jCell = num % size;
+
+            const iFinish = Math.floor(finish / size);
+            const jFinish = finish % size;
+
+            map[iCell][jCell] = "finish";
+            map[iFinish][jFinish] = "clean";
+
+            getElementOfCssGrid(iFinish, jFinish, size).className = "cell";
+
+            finishFlag = true;
+            finish = num;
+        }
+
+        else
+        {
+            cell.classList.toggle("cell-clicked");
+            setWall(num, size);
+        }
+    }
+}
+
+function getElementOfCssGrid(x, y, size) 
+{
+    const index = size * x + y;
+    const cells = document.querySelectorAll(".maze .cell");
+    
+    return cells[index];
+}
+
 export function resizeMaze(size)
 {
     maze.replaceChildren();
@@ -7,14 +100,41 @@ export function resizeMaze(size)
     maze.style.gridTemplateColumns = `repeat(${size}, ${100 / size}%)`;
     maze.style.gridTemplateRows = `repeat(${size}, ${100 / size}%)`;
 
+    if (!finish)
+        finish = size * size - 1;
+
     for (let i = 0; i < size * size; i++)
     {
         const cell = document.createElement("div");
         cell.className = "cell";
-        cell.onclick = function() {this.classList.toggle("cell-clicked");}
+        cell.onclick = () => changeStyle(cell, i, size);
         maze.appendChild(cell);
     }
-}
+
+    map = [];
+
+    for (let i = 0; i < size; i++)
+    {
+        let row = [];
+
+        for (let j = 0; j < size; j++)
+            row.push("clean");
+
+        map.push(row);
+    }
+
+    const iStart = Math.floor(start / size);
+    const jStart = start % size;
+    
+    const iFinish = Math.floor(finish / size);
+    const jFinish = finish % size;
+
+    map[iStart][jStart] = "start";
+    map[iFinish][jFinish] = "finish";
+
+    getElementOfCssGrid(iStart, jStart, size).classList.add("cell-start");
+    getElementOfCssGrid(iFinish, jFinish, size).classList.add("cell-finish");
+} 
 
 export let map = [];
 
@@ -167,28 +287,27 @@ export function generateMaze(size)
         moveCleaner();
     }
 
-    function getElementOfCssGrid(x, y, size) 
-    {
-        const index = size * x + y;
-        const cells = document.querySelectorAll(".maze .cell");
-    
-        return cells[index];
-    }
-
     for (let x = 0; x < size; x++)
     {
         for (let y = 0; y < size; y++)
         {
             if (map[x][y] === "wall")
             {
-                getElementOfCssGrid(x, y, size).classList.toggle("cell-clicked");
+                getElementOfCssGrid(x, y, size).classList.add("cell-clicked");
+            }
+            else
+            {
+                getElementOfCssGrid(x, y, size).classList.remove("cell-clicked");
             }
         }
     }
 
-    map[0][0] = "start";
-    map[size - 1][size - 1] = "finish";
+    const iStart = Math.floor(start / size);
+    const jStart = start % size;
+    
+    const iFinish = Math.floor(finish / size);
+    const jFinish = finish % size;
 
-    getElementOfCssGrid(0, 0, size).classList.toggle("cell-start");
-    getElementOfCssGrid(size - 1, size - 1, size).classList.toggle("cell-finish");
+    map[iStart][jStart] = "start";
+    map[iFinish][jFinish] = "finish";
 }

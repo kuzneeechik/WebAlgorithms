@@ -59,15 +59,17 @@ a {
 
 .cell-clicked {
     background-color: #7BBD5C;
+    cursor: pointer;
 }
 
 .cell-clicked:hover {
-    background-color: #7BBD5C !important;
+    background-color: #7BBD5C /* !important */;
     opacity: 0.8;
 }
 
 .cell-start {
     background-color: #F27928 !important;
+    cursor: pointer;
 }
 
 .cell-start:hover {
@@ -75,8 +77,20 @@ a {
     opacity: 0.8;
 }
 
-.cell-finish, .cell-way {
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.blink-cell {
+    animation: blinker 1s linear infinite;
+    cursor: pointer;
+}
+
+.cell-finish {
     background-color: #EF474A !important;
+    cursor: pointer;
 }
 
 .cell-finish:hover {
@@ -127,10 +141,10 @@ header {
     max-width: 100dvw;
     height: 11dvh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 12px;
     flex-direction: row;
-    gap: 36dvw;
     background-color: #4683BA;
 }
 
@@ -161,12 +175,12 @@ h1 {
     background: #BE4848;
     color: #fff;
     font-family: "Unbounded", sans-serif; 
-    font-size: 2.3dvh;
+    font-size: 1.5dvw;
     font-weight: 700;
     border-radius: 60px;
     width: 19dvw;
     height: 10dvh;
-    border-width: 10px;
+    border-width: 1dvh;
     border-color: #952336;
     transition: 500ms;
     cursor: pointer;
