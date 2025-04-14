@@ -63,7 +63,7 @@ a {
 }
 
 .cell-clicked:hover {
-    background-color: #7BBD5C /* !important */;
+    background-color: #7BBD5C;
     opacity: 0.8;
 }
 
@@ -88,22 +88,22 @@ a {
     cursor: pointer;
 }
 
-.cell-finish {
-    background-color: #EF474A !important;
-    cursor: pointer;
-}
-
 .cell-finish:hover {
     background-color: #EF474A !important;
     opacity: 0.8;
+}
+
+.cell-border {
+    background-color: #FF934B;
 }
 
 .cell-process {
     background-color: #F9FF8A; 
 }
 
-.cell-border {
-    background-color: #FF934B;
+.cell-finish {
+    background-color: #EF474A;
+    cursor: pointer;
 }
 
 .right-container {

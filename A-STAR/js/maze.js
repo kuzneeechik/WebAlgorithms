@@ -85,7 +85,7 @@ function changeStyle (cell, num, size)
     }
 }
 
-function getElementOfCssGrid(x, y, size) 
+export function getElementOfCssGrid(x, y, size) 
 {
     const index = size * x + y;
     const cells = document.querySelectorAll(".maze .cell");
@@ -140,6 +140,8 @@ export let map = [];
 
 export function generateMaze(size)
 {
+    resizeMaze(size);
+
     map = [];
 
     for (let x = 0; x < size; x++)

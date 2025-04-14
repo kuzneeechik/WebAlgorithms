@@ -1,7 +1,7 @@
-import { resizeMaze, map, generateMaze } from "./maze.js";
+import { resizeMaze, map, generateMaze, getElementOfCssGrid } from "./maze.js";
 import { PriorityQueue } from "./priorityQueue.js";
 
-let size = 5;
+let size = 21;
 resizeMaze(size);
 
 const createMaze = document.querySelector('#create-maze');
@@ -12,9 +12,11 @@ const cleanMaze = document.querySelector('#clean');
 const clean = () => resizeMaze(size);
 cleanMaze.addEventListener('click', clean);
 
+let animationSpeed = 10;
+
 let graph = [];
 
-function aStar(map, size)
+async function aStar(map, size)
 {
     graph = [];
 
@@ -60,22 +62,42 @@ function aStar(map, size)
     cameFrom[start] = NaN;
     distanceFromStart[start] = 0;
 
-    function getNeighbors(number, size, neighbors, graph)
+    async function getNeighbors(number, size, neighbors, graph)
     {
         let i = Math.floor(number / size);
         let j = number % size;
 
         if (i > 0 && graph[i - 1][j] === 1)
+        {
             neighbors.push((i - 1) * size + j);
 
+            getElementOfCssGrid(i, j, size).classList.add("cell-process");
+            await sleep(animationSpeed);
+        }
+
         if (i < size - 1 && graph[i + 1][j])
+        {
             neighbors.push((i + 1) * size + j);
 
+            getElementOfCssGrid(i, j, size).classList.add("cell-process");
+            await sleep(animationSpeed);
+        }
+
         if (j > 0 && graph[i][j - 1])
+        {
             neighbors.push(i * size + (j - 1));
 
+            getElementOfCssGrid(i, j, size).classList.add("cell-process");
+            await sleep(animationSpeed);
+        }
+
         if (j < size - 1 && graph[i][j + 1])
+        {
             neighbors.push(i * size + (j + 1));
+
+            getElementOfCssGrid(i, j, size).classList.add("cell-process");
+            await sleep(animationSpeed);
+        }
     }
 
     function heuristic(finish, next, size)
@@ -98,7 +120,7 @@ function aStar(map, size)
             break;
 
         let neighbors = [];
-        getNeighbors(current.number, size, neighbors, graph);
+        await getNeighbors(current.number, size, neighbors, graph);
 
         for (let i = 0; i < neighbors.length; i++)
         {
@@ -111,6 +133,12 @@ function aStar(map, size)
                 
                 let priority = newDistance + heuristic(finish, neighbor, size);
                 queue.addItem(neighbor, priority);
+
+                const iNeighbor = Math.floor(neighbor / size);
+                const jNeighbor = neighbor % size;
+
+                getElementOfCssGrid(iNeighbor, jNeighbor, size).classList.add("cell-border");
+                await sleep(animationSpeed);
                 
                 cameFrom[neighbor] = current.number;
             }
@@ -127,10 +155,20 @@ function aStar(map, size)
         way.push(currentCell); 
     }
 
-    console.log(map);
-    console.log(way);
+    for (let i = way.length - 1; i >= 0; i--)
+    {
+        const iCell = Math.floor(way[i] / size);
+        const jCell = way[i] % size;
+
+        getElementOfCssGrid(iCell, jCell, size).classList.add("cell-finish");
+        await sleep(animationSpeed);
+    }
 }
 
 const toRun = document.querySelector('#to-run');
 const runAStar = () => aStar(map, size);
 toRun.addEventListener('click', runAStar);
+
+async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
