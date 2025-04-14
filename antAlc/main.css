@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    background-image: linear-gradient(to bottom, #ff69b4, #87ceeb);
+    background-color: #262E31;
     background-color: #070707;
     color: white;
     margin: 0;
@@ -37,13 +37,23 @@ body {
     font-size: 20px ;
     text-align: center;
     margin-left: -100px;
+
 }
 h1 {
     margin: 0;
     padding: 0;
-    color: rgb(247, 195, 233);
+    color: #FFFFFF(247, 195, 233);
 }
-
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100px;
+    background-color: black;
+    padding-left: 100px;
+    border-bottom: 3px solid #C95F5F; /* Добавляем линию внизу */
+}
 .gradient-container {
 
     height: 100vh;
@@ -53,16 +63,10 @@ h1 {
     align-items: center;
 }
 
-.antHead {
-    width: 15%;
-    height: auto;
-    margin-right: 20px;
-
-}
 
 #canVas {
-    border: 7px solid rgb(22, 32, 71);
-    background-color: #6255d3;
+    border: 7px solid #952336;
+    background-color: #C95F5F;
     width: 600px;
     height: 400px;
     margin-top: 40px;
@@ -75,19 +79,19 @@ h1 {
 }
 
 .buttonsFor {
-    border: 3px solid rgb(167, 31, 128);
-    background-color: #ffc0cb;
+    border: 3px solid #C95F5F;
+    background-color: #d39999;
     border-radius: 100px;
     padding: 2em 4em;
     cursor: pointer;
     font-size: 14px;
-    color: rgb(80, 27, 66);
+    color: #ce3030;
     transition: transform 0.5s, color 0.5s, background-color 0.5s;
 }
 
 .buttonsFor:hover {
-    background-color: #c62ba5;
-    border: 3px solid rgb(239, 135, 188);
+    background-color: #C95F5F;
+    border: 3px solid #c9a3a3;
     color: white;
     transform: scale(1.2);
 }
