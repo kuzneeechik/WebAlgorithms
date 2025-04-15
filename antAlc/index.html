@@ -2,24 +2,32 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="main.css">
   <title>Муравьиный Алгоритм</title>
 </head>
 <body>
-<header>
-    <a href="../index.html" id="back"><img src="img/back.png" alt=""></a>
-    <h1>Муравьиный Алгоритм</h1>
-    <button id="learn-more"><img src="img/learnMore.png" alt=""></button>
+  <header class="header-container">
+    <a href="../index.html" id="back"><img src="img/back.png" alt="Назад"></a>
+    <h1 class="title">Муравьиный Алгоритм</h1>
+    <button id="learn-more"><img src="img/learnMore.png" alt="Узнать больше"></button>
 </header>
-<div class="algorithm">
+<div class="algorithm-container">
   <div class="buttons">
     <button class="buttonsFor">Запустить</button>
     <button class="buttonsFor">Очистить</button>
   </div>
-  <canvas id="canVas" width="600" height="400"></canvas>
+  <div class="canvas-wrapper">
+    <canvas id="canVas" width="600" height="400"></canvas>
+  </div>
+</div>
+<div id="myNotification" class="custom-notification hidden">
+    <div class="custom-notification-box">
+        <p id="notificationText"></p>
+        <button onclick="closeNotification()">OK</button>
+    </div>
 </div>
 <script src="ant.js"></script>
 </body>
 </html>
-    
 

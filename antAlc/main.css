@@ -1,52 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-}
 
 body {
-    font-family: "Unbounded", sans-serif; 
+    font-family: "Unbounded", sans-serif;
     font-weight: 800;
     color: #fff;
     background-color: #262E31;
+    margin: 0;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 a {
     text-decoration: none;
 }
 
-#canVas {
-    border: 7px solid #952336;
-    background-color: #C95F5F;
-    width: 600px;
-    height: 400px;
-    margin-top: 40px;
-}
-
-.algorithm {
-    height: 89dvh;
-    width: 100%;
+.header-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-
-header {
-    max-width: 100dvw;
+    justify-content: space-between;
     height: 11dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 36dvw;
+    min-height: 80px;
     background-color: #C95F5F;
+    padding: 0 20px;
+    border-bottom: 3px solid #C95F5F;
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 h1 {
-    font-size: 4dvw;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: clamp(18px, 4vw, 40px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #learn-more {
@@ -54,6 +48,9 @@ h1 {
     border: none;
     cursor: pointer;
     transition: 500ms;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
 }
 
 #learn-more:hover {
@@ -62,21 +59,49 @@ h1 {
 
 #back {
     transition: 500ms;
+    width: 40px;
+    height: 40px;
 }
 
 #back:hover {
     transform: scale(1.05);
 }
 
+.algorithm-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 89dvh;
+    padding: 20px;
+    gap: 40px;
+}
+
+.canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#canVas {
+    border: 7px solid #952336;
+    background-color: #C95F5F;
+    width: 600px;
+    height: 400px;
+    max-width: 100%;
+}
+
 .buttons {
     display: flex;
     gap: 40px;
-    margin-top: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-.algorithm button {
+
+.buttonsFor {
     background: #5553CF;
-    color: #fff;
-    font-family: "Unbounded", sans-serif; 
+    font-family: "Unbounded", sans-serif;
+    color: white;
     font-size: 2.3dvh;
     font-weight: 700;
     border-radius: 60px;
@@ -85,24 +110,47 @@ h1 {
     border-width: 10px;
     border-color: #200f7e;
     transition: 500ms;
-    cursor: pointer;
+
 }
 
-.algorithm button:hover {
+.buttonsFor:hover {
     transform: scale(1.1);
 }
 
-
-#to-run {
-    background: #5ab62f;
-    border-color: #2B8600;
+.custom-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
 }
 
+.custom-notification-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    border: 7px solid #4683BA;
+    font-family: "Unbounded", sans-serif;
+    color: #333;
+    text-align: center;
+}
 
-
-
-
-
-
-
-
+.custom-notification-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: #AB5CBD;
+    color: white;
+    cursor: pointer;
+    transition: 300ms;
+}
+.hidden{
+    display: none;
+}
