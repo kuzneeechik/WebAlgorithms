@@ -2,13 +2,6 @@
 
 
 body {
-<<<<<<< HEAD
-    background-color: #262E31;
-    background-color: #070707;
-    color: white;
-    margin: 0;
-    overflow: hidden;
-=======
     font-family: "Unbounded", sans-serif;
     font-weight: 800;
     color: #fff;
@@ -20,7 +13,6 @@ body {
 
 a {
     text-decoration: none;
->>>>>>> ant_genetic
 }
 
 .header-container {
@@ -37,50 +29,13 @@ a {
 
 .title {
     position: absolute;
-<<<<<<< HEAD
-    left: 20px;
-    height: 80px;
-    width: auto;
-    max-height: 80%;
-    top: 50%;
-    transform: translateY(-50%);
-    object-fit: contain;
-}
-.text-container {
-    width: 100%;
-    font-size: 20px ;
-    text-align: center;
-    margin-left: -100px;
-
-=======
     left: 50%;
     transform: translateX(-50%);
->>>>>>> ant_genetic
 }
 
 h1 {
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
-    color: #FFFFFF(247, 195, 233);
-}
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 100px;
-    background-color: black;
-    padding-left: 100px;
-    border-bottom: 3px solid #C95F5F; /* Добавляем линию внизу */
-}
-.gradient-container {
-
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-=======
     color: white;
     font-size: clamp(18px, 4vw, 40px);
     white-space: nowrap;
@@ -115,7 +70,6 @@ h1 {
 .algorithm-container {
     display: flex;
     flex-direction: column;
->>>>>>> ant_genetic
     align-items: center;
     justify-content: center;
     min-height: 89dvh;
@@ -123,25 +77,18 @@ h1 {
     gap: 40px;
 }
 
-<<<<<<< HEAD
-=======
 .canvas-wrapper {
     display: flex;
     justify-content: center;
     width: 100%;
 }
->>>>>>> ant_genetic
 
 #canVas {
     border: 7px solid #952336;
     background-color: #C95F5F;
     width: 600px;
     height: 400px;
-<<<<<<< HEAD
-    margin-top: 40px;
-=======
     max-width: 100%;
->>>>>>> ant_genetic
 }
 
 .buttons {
@@ -152,23 +99,6 @@ h1 {
 }
 
 .buttonsFor {
-<<<<<<< HEAD
-    border: 3px solid #C95F5F;
-    background-color: #d39999;
-    border-radius: 100px;
-    padding: 2em 4em;
-    cursor: pointer;
-    font-size: 14px;
-    color: #ce3030;
-    transition: transform 0.5s, color 0.5s, background-color 0.5s;
-}
-
-.buttonsFor:hover {
-    background-color: #C95F5F;
-    border: 3px solid #c9a3a3;
-    color: white;
-    transform: scale(1.2);
-=======
     background: #5553CF;
     font-family: "Unbounded", sans-serif;
     color: white;
@@ -220,7 +150,6 @@ h1 {
     color: white;
     cursor: pointer;
     transition: 300ms;
->>>>>>> ant_genetic
 }
 .hidden{
     display: none;
