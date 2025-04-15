@@ -1,82 +1,110 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
-body {
-    margin: 0; 
+* {
+    margin: 0;
     padding: 0;
-    height: 100vh; 
-    overflow: hidden; 
-    background: #000; 
-    color: rgb(94, 255, 0);
-    display: flex; 
-    flex-direction: column;
-    align-items: center; 
-    justify-content: flex-start; 
+}
+
+body {
+    font-family: "Unbounded", sans-serif; 
+    font-weight: 800;
+    color: #ffffff;
+    background-color: #262E31;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    max-width: 100dvw;
+    height: 11dvh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    flex-direction: row;
+    background-color: #2e9d32;
 }
 
 h1 {
-    text-shadow: 0 0 15px #39FF14; 
-    margin: 20px 0; 
-    font-size: 2.5em; 
-    text-align: center;
+    font-size: 4dvw;
 }
 
-hr {
-    border: none; 
-    height: 1px; 
-    background-color: #1c680e;
-    width: 100%; 
+#learn-more {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 500ms;
 }
 
-#canvas {
-    border: 2px solid #1c680e; 
-    cursor: crosshair; 
-    background-color: #000; 
-    margin-top: 3%; 
+#learn-more:hover {
+    transform: scale(1.05);
 }
 
-.container { 
+#back {
+    transition: 500ms;
+}
+
+#back:hover {
+    transform: scale(1.05);
+}
+
+.container {
     display: flex;
-    flex-direction: row; 
-    align-items: flex-start; 
-    justify-content: center; 
-    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+canvas {
+    margin-top: 2vw;
+    background-color: #ffffff; 
+    cursor: crosshair;
+    width: 600px; 
+    height: 400px; 
+}
+
+.controls button {
+    background: #2e9d32; 
+    color: #fff;
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.15dvw; 
+    font-weight: 700;
+    border-radius: 60px;
+    width: 15dvw; 
+    height: 10dvh; 
+    border-width: 1dvh;
+    border-color: #184d1a;
+    transition: 500ms;
+    cursor: pointer;
+    margin: 0 10px;  
+}
+
+button:hover {
+    transform: scale(1.1);
 }
 
 .controls {
-    margin-top: 10px;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+    text-align: center;
+    padding: 20px;
+} 
+
+#kInput {
+    background: #2e9d32;
+    color: #fff;
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.15dvw;
+    font-weight: 700;
+    border-radius: 60px;
+    width: 14dvw;
+    height: 7.5dvh;
+    border-width: 1dvh;
+    border-color: #184d1a;
+    transition: 500ms;
+    cursor: pointer;
+    margin: 0 10px;
+    text-align: center;
 }
 
-.controls label {
-    color: #39FF14; 
-    margin-left: 15px; 
-}
 
-.controls input[type="number"] {
-    background-color: rgba(0, 0, 0, 0.5); 
-    color: rgb(94, 255, 0); 
-    border: 1px solid #1c680e; 
-    padding: 8px 12px; 
-    border-radius: 4px; 
-    text-align: center; 
-    margin-left: 5px;
-}
-
-button {
-    padding: 12px 25px; 
-    font-size: 1.1em; 
-    background: transparent;
-    color: #39FF14; 
-    border: 2px solid #1c680e; 
-    border-radius: 8px; 
-    cursor: pointer; 
-    transition: all 0.3s; 
-    margin-right: 10px; 
-}
-
-button:hover { 
-    background: #39FF14; 
-    color: #000; 
-    box-shadow: 0 0 15px #39FF14;
-}

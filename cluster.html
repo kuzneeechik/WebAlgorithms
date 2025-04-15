@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="clusterPage/cluster.css">
 </head>
 <body>
-    <h1>Кластеризация</h1>
-    <hr>
-    <div class="label-input-container">
-        <label for="kInput">Количество кластеров (K):</label>
-        <input type="number" id="kInput" value="3" min="1">
-    </div>
+    <header>
+        <a href="../index.html" id="back"><img src="back.png" alt=""></a>
+        <h1>Кластеризация</h1>
+        <button id="learn-more"><img src="learnMore.png" alt=""></button>
+    </header>
+
     <div class="container">
         <canvas id="canvas" width="600" height="400"></canvas>
     </div>
@@ -19,6 +19,7 @@
     <div class="controls">
         <button id="clusterButton">Кластеризовать</button>
         <button id="clearButton">Очистить</button>
+        <input type="number" id="kInput" value="3" min="1">
     </div>
 
     <script src="clusterPage/cluster.js"></script>

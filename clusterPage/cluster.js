@@ -7,7 +7,7 @@ const kInput = document.getElementById('kInput');
 let points = [];
 let clusters = []; 
 
-function drawPoint(x, y, color = '#39FF14', radius = 5) { 
+function drawPoint(x, y, color = '#262E31', radius = 5) { 
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, 2 * Math.PI);
     ctx.fillStyle = color;
