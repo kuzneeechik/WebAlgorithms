@@ -32,7 +32,7 @@ function draw(e) {
     e.preventDefault();
     
     ctx.lineTo(...getPosition(e));
-    ctx.strokeStyle = '#0ff';
+    ctx.strokeStyle = '#ffffff';
     ctx.lineWidth = 3;
     ctx.lineCap = 'round';
     ctx.stroke();

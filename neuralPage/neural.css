@@ -1,26 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
-body {
+* {
     margin: 0;
     padding: 0;
-    height: 100%; 
-    overflow: hidden; 
-    background: #000;
-    color: #0ff;
-    font-family: Arial, sans-serif;
+}
+
+body {
+    font-family: "Unbounded", sans-serif; 
+    font-weight: 800;
+    color: #ffffff;
+    background-color: #262E31;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    max-width: 100dvw;
+    height: 11dvh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    flex-direction: row;
+    background-color: #6f188c;
+}
+
+#learn-more {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+#learn-more:hover {
+    transform: scale(1.05);
+}
+
+#back {
+    transition: 500ms;
+}
+
+#back:hover {
+    transform: scale(1.05);
 }
 
 h1 {
-    text-shadow: 0 0 15px #0ff;
-    margin: 20px 0;
-    font-size: 2.5em;
-    text-align: center;
+    font-size: 4dvw;
 }
 
-hr {
-    border: none;
-    height: 1px;
-    background-color: #0ff; 
-  }
 
 .container {
     display: flex;
@@ -32,8 +61,8 @@ hr {
 
 #canvas {
     background: #000;
-    border: 2px solid #0ff;
-    box-shadow: 0 0 20px #0ff;
+    border: 2px solid #6f188c;
+    box-shadow: 0 0 20px #6f188c;
     cursor: crosshair;
     touch-action: none;
     width: 280px;
@@ -61,8 +90,8 @@ hr {
 }
 
 .digit.active {
-    background: #0ff;
-    box-shadow: 0 0 25px #0ff;
+    background: #6f188c;
+    box-shadow: 0 0 25px #6f188c;
     color: #000;
 }
 
@@ -75,19 +104,22 @@ hr {
     gap: 15px;
 }
 
-button {
-    padding: 12px 25px;
-    font-size: 1.1em;
-    background: transparent;
-    color: #0ff;
-    border: 2px solid #0ff;
-    border-radius: 8px;
+.buttons button {
+    background: #6f188c; 
+    color: #fff;
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.1.1em; 
+    font-weight: 700;
+    border-radius: 60px;
+    width: 15dvw; 
+    height: 10dvh; 
+    border-width: 1dvh;
+    border-color: #6f188c;
+    transition: 500ms;
     cursor: pointer;
-    transition: all 0.3s;
+    margin: 0 10px;
 }
 
 button:hover {
-    background: #0ff;
-    color: #000;
-    box-shadow: 0 0 15px #0ff;
+    transform: scale(1.1);
 }
