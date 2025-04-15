@@ -3,16 +3,18 @@ const ctx = canVas.getContext('2d');
 const buttons = document.querySelectorAll('.buttonsFor');
 let points = [];
 
-function showAlert() {
-    document.getElementById("alertText").innerText = "Данный алгоритм находит кратчайший замкнутый путь \n между всеми точками, которые поставите!";
-    document.getElementById("myAlert").classList.remove("hidden");
+function showNotification() {
+    document.getElementById("notificationText").innerText = "Данный алгоритм находит кратчайший замкнутый путь \n между всеми точками, которые поставите!";
+    document.getElementById("myNotification").classList.remove("hidden");
 }
 
-function closeAlert() {
-    document.getElementById("myAlert").classList.add("hidden");
+function closeNotification() {
+    document.getElementById("myNotification").classList.add("hidden");
 }
+
 const inform = document.getElementById('learn-more');
-inform.addEventListener('click', showAlert);
+inform.addEventListener('click', showNotification);
+
 
 function drawPoint(x, y, size = 6)
 {
