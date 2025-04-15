@@ -1,29 +1,43 @@
-html {
-    width: 100%;
-    height: 100%;
-    font-family: 'Vela Sans', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
 
 body {
+<<<<<<< HEAD
     background-color: #262E31;
     background-color: #070707;
     color: white;
     margin: 0;
     overflow: hidden;
+=======
+    font-family: "Unbounded", sans-serif;
+    font-weight: 800;
+    color: #fff;
+    background-color: #262E31;
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+>>>>>>> ant_genetic
 }
 
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    height: 11dvh;
+    min-height: 80px;
+    background-color: #C95F5F;
+    padding: 0 20px;
+    border-bottom: 3px solid #C95F5F;
     position: relative;
-    height: 100px;
-    background-color: black;
-    padding-left: 100px;
 }
 
-.antHead {
+.title {
     position: absolute;
+<<<<<<< HEAD
     left: 20px;
     height: 80px;
     width: auto;
@@ -38,10 +52,16 @@ body {
     text-align: center;
     margin-left: -100px;
 
+=======
+    left: 50%;
+    transform: translateX(-50%);
+>>>>>>> ant_genetic
 }
+
 h1 {
     margin: 0;
     padding: 0;
+<<<<<<< HEAD
     color: #FFFFFF(247, 195, 233);
 }
 .header-container {
@@ -60,25 +80,79 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+=======
+    color: white;
+    font-size: clamp(18px, 4vw, 40px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+#learn-more {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 500ms;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+#learn-more:hover {
+    transform: scale(1.05);
+}
+
+#back {
+    transition: 500ms;
+    width: 40px;
+    height: 40px;
+}
+
+#back:hover {
+    transform: scale(1.05);
+}
+
+.algorithm-container {
+    display: flex;
+    flex-direction: column;
+>>>>>>> ant_genetic
+    align-items: center;
+    justify-content: center;
+    min-height: 89dvh;
+    padding: 20px;
+    gap: 40px;
+}
+
+<<<<<<< HEAD
+=======
+.canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+>>>>>>> ant_genetic
 
 #canVas {
     border: 7px solid #952336;
     background-color: #C95F5F;
     width: 600px;
     height: 400px;
+<<<<<<< HEAD
     margin-top: 40px;
+=======
+    max-width: 100%;
+>>>>>>> ant_genetic
 }
 
 .buttons {
     display: flex;
     gap: 40px;
-    margin-top: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .buttonsFor {
+<<<<<<< HEAD
     border: 3px solid #C95F5F;
     background-color: #d39999;
     border-radius: 100px;
@@ -94,4 +168,60 @@ h1 {
     border: 3px solid #c9a3a3;
     color: white;
     transform: scale(1.2);
+=======
+    background: #5553CF;
+    font-family: "Unbounded", sans-serif;
+    color: white;
+    font-size: 2.3dvh;
+    font-weight: 700;
+    border-radius: 60px;
+    width: 19dvw;
+    height: 10dvh;
+    border-width: 10px;
+    border-color: #200f7e;
+    transition: 500ms;
+
+}
+
+.buttonsFor:hover {
+    transform: scale(1.1);
+}
+
+.custom-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.custom-notification-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    border: 7px solid #4683BA;
+    font-family: "Unbounded", sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.custom-notification-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: #AB5CBD;
+    color: white;
+    cursor: pointer;
+    transition: 300ms;
+>>>>>>> ant_genetic
+}
+.hidden{
+    display: none;
 }
