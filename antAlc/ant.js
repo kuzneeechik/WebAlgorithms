@@ -4,7 +4,7 @@ const buttons = document.querySelectorAll('.buttonsFor');
 let points = [];
 
 function showNotification() {
-    document.getElementById("notificationText").innerText = "Данный алгоритм находит кратчайший замкнутый путь \n между всеми точками, которые поставите!";
+    document.getElementById("notificationText").innerText = "Данный алгоритм находит кратчайший замкнутый путь \n между всеми точками, которые вы поставите!";
     document.getElementById("myNotification").classList.remove("hidden");
 }
 
@@ -42,12 +42,19 @@ function clearCanvas()
 buttons[0].addEventListener('click', start);
 buttons[1].addEventListener('click', clearCanvas);
 
-function start() {
-
+function start() 
+{
+    
     const matrix = createMatrix(points);
     const alg = new generalOptions(matrix);
 
     let bestWay = alg.AntsAlgorithm();
+
+    ctx.clearRect(0,0, canVas.width, canVas.height);
+    for(let point of points) 
+    {
+        drawPoint(point.x, point.y);
+    }
 
     ctx.strokeStyle = "white";
     ctx.lineWidth = 3;
@@ -62,7 +69,8 @@ function start() {
     ctx.stroke();
 }
 
-function createMatrix(points) {
+function createMatrix(points) 
+{
     const countPoints = points.length;
     const matrix = Array.from({length: countPoints}, () => Array(countPoints).fill(0));
     for (let i = 0; i < countPoints; i++)
@@ -106,7 +114,6 @@ class generalOptions
             this.ants.push(ant);
         }
     }
-
     updatePheromones()
     {
         for(let i = 0; i < this.sizeMatrix; i++)
@@ -128,7 +135,8 @@ class generalOptions
             }
         }
     }
-    AntsAlgorithm(iteration = 100, antsCount = points.length){
+    AntsAlgorithm(iteration = 100, antsCount = points.length)
+    {
         let bestWay = null;
         for(let i = 0; i < iteration; i++)
         {
@@ -153,7 +161,8 @@ class generalOptions
 
 class antPath
 {
-    constructor() {
+    constructor() 
+    {
         this.ListPeakWay = [];
         this.distance = 0;
     }
