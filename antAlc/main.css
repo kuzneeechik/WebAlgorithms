@@ -89,6 +89,7 @@ h1 {
     width: 600px;
     height: 400px;
     max-width: 100%;
+    cursor: pointer;
 }
 
 .buttons {
