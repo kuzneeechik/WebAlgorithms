@@ -67,7 +67,7 @@ async function aStar(map, size)
         let i = Math.floor(number / size);
         let j = number % size;
 
-        if (i > 0 && graph[i - 1][j] === 1)
+        if (i > 0 && graph[i - 1][j])
         {
             neighbors.push((i - 1) * size + j);
 
@@ -162,13 +162,14 @@ async function aStar(map, size)
 
         getElementOfCssGrid(iCell, jCell, size).classList.add("cell-finish");
         await sleep(animationSpeed);
-    }
+    } 
 }
 
 const toRun = document.querySelector('#to-run');
-const runAStar = () => aStar(map, size);
+const runAStar = async () => await aStar(map, size);
 toRun.addEventListener('click', runAStar);
 
-async function sleep(ms) {
+async function sleep(ms) 
+{
     return new Promise(resolve => setTimeout(resolve, ms));
-  }
+}

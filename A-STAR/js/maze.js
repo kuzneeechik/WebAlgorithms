@@ -85,6 +85,21 @@ function changeStyle (cell, num, size)
     }
 }
 
+function resetMode (size)
+{
+    startFlag = true;
+    finishFlag = true;
+
+    const iStart = Math.floor(start / size);
+    const jStart = start % size;
+
+    const iFinish = Math.floor(finish / size);
+    const jFinish = finish % size;
+
+    getElementOfCssGrid(iStart, jStart, size).classList.remove("blink-cell");
+    getElementOfCssGrid(iFinish, jFinish, size).classList.remove("blink-cell");
+}
+
 export function getElementOfCssGrid(x, y, size) 
 {
     const index = size * x + y;
@@ -95,6 +110,9 @@ export function getElementOfCssGrid(x, y, size)
 
 export function resizeMaze(size)
 {
+    if (finish)
+        resetMode(size);
+
     maze.replaceChildren();
 
     maze.style.gridTemplateColumns = `repeat(${size}, ${100 / size}%)`;
