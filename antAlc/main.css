@@ -8,6 +8,7 @@ body {
     background-color: #262E31;
     margin: 0;
     overflow-x: hidden;
+    overflow-y: hidden;
     min-height: 100vh;
 }
 
