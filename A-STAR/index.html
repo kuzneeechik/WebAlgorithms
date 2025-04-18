@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгоритм A-STAR</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="js/aStar.js" defer></script>
+
+    <link rel="stylesheet" href="../libs/Toast/toast.min.css">
+    <script src="../libs/Toast/toast.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" id="back"><img src="img/back.png" alt=""></a>
+        <h1>A-STAR</h1>
+        <button id="learn-more"><img src="img/learnMore.png" alt=""></button>
+    </header>
+
+    <div class="algorithm">
+        <div class="left-container">
+            <div class="range-container size">
+                <p>Размер поля</p>
+                <input id="resize" type="range" min="3" max="41" step="2" value="15">
+            </div>
+            <div class="range-container animation">
+                <p>Скорость анимации</p>
+                <input id="animation" type="range" min="1" max="100" step="1" value="90">
+            </div>
+        </div>
+        <div class="center-container"><div class="maze"></div></div>
+        <div class="right-container">
+            <button id="create-maze">Сгенерировать лабиринт</button>
+            <button id="clean">Очистить поле</button>
+            <button id="to-run">Запустить алгоритм</button>
+        </div>
+    </div>
+    
+    <div id="notification" class="custom-notification hidden">
+        <div class="custom-notification-box">
+            <p>Это алгоритм А*</p>
+            <p>Он находит кратчайший путь от начальной точки до конечной.</p>
+            <p>Ты можешь сгенерировать лабиринт или построить его самостоятельно,</p>
+            <p>изменить старт и финиш, нажав на них и переместив на нужное место,</p>
+            <p>а затем запустить алгоритм и посмотреть, как он работает.</p>
+            <button id="close-notification">OK</button>
+        </div>
+    </div>
+</body>
+
+</html>
