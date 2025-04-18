@@ -50,7 +50,7 @@ a {
     border: 1px solid gray;
     background-color: #fff;
     transition: 200ms;
-    cursor: pointer;
+    cursor: cell;
 }
 
 .cell:hover {
@@ -59,7 +59,7 @@ a {
 
 .cell-clicked {
     background-color: #7BBD5C;
-    cursor: pointer;
+    cursor: cell;
 }
 
 .cell-clicked:hover {
@@ -69,7 +69,7 @@ a {
 
 .cell-start {
     background-color: #F27928 !important;
-    cursor: pointer;
+    cursor: cell;
 }
 
 .cell-start:hover {
@@ -85,7 +85,7 @@ a {
 
 .blink-cell {
     animation: blinker 1s linear infinite;
-    cursor: pointer;
+    cursor: cell;
 }
 
 .cell-finish:hover {
@@ -103,7 +103,7 @@ a {
 
 .cell-finish {
     background-color: #EF474A;
-    cursor: pointer;
+    cursor: cell;
 }
 
 .right-container {
@@ -124,8 +124,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
-    /* gap: 70px; */
+    flex-direction: column;
+    gap: 70px;
 }
 
 .center-container {
@@ -200,3 +200,65 @@ h1 {
     background: #5553CF;
     border-color: #200f7e;
 }
+
+.custom-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.custom-notification-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    border: 7px solid #4683BA;
+    font-family: "Unbounded", sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.custom-notification-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: #AB5CBD;
+    color: white;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.hidden {
+    display: none;
+}
+
+.range-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2dvh;
+    background: #305c8f;
+    color: #fff;
+    font-family: "Unbounded", sans-serif; 
+    font-size: 1.2dvw;
+    font-weight: 700;
+    border-radius: 10px;
+    width: 19dvw;
+    height: 12dvh;
+    border: 0.5dvh solid #87A7CC;
+}
+
+input {
+    cursor: pointer;
+    width: 55%;
+    accent-color: #acd3ff;
+} 

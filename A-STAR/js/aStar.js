@@ -1,8 +1,32 @@
 import { resizeMaze, map, generateMaze, getElementOfCssGrid } from "./maze.js";
 import { PriorityQueue } from "./priorityQueue.js";
 
-let size = 21;
+document.getElementById("learn-more").addEventListener("click", showNotification);
+document.getElementById("close-notification").addEventListener("click", closeNotification);
+document.getElementById("notification").addEventListener("click", closeNotification);
+document.querySelector(".custom-notification-box").addEventListener("click", (e) => e.stopPropagation());
+
+function showNotification() 
+{
+    document.getElementById("notification").classList.remove("hidden");
+}
+
+function closeNotification() 
+{
+    document.getElementById("notification").classList.add("hidden");
+}
+
+let size = 15;
 resizeMaze(size);
+
+document.getElementById("resize").addEventListener("input", (e) => {
+    size = e.target.value;
+    resizeMaze(size);
+})
+
+document.getElementById("animation").addEventListener("input", (e) => {
+    animationSpeed = 100 - e.target.value;
+})
 
 const createMaze = document.querySelector('#create-maze');
 const generate = () => generateMaze(size);

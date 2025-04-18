@@ -118,8 +118,8 @@ export function resizeMaze(size)
     maze.style.gridTemplateColumns = `repeat(${size}, ${100 / size}%)`;
     maze.style.gridTemplateRows = `repeat(${size}, ${100 / size}%)`;
 
-    if (!finish)
-        finish = size * size - 1;
+    finish = size * size - 1;
+    start = 0;
 
     for (let i = 0; i < size * size; i++)
     {

@@ -17,7 +17,16 @@
     </header>
 
     <div class="algorithm">
-        <div class="left-container"><button id="resize">Изменить размер</button></div>
+        <div class="left-container">
+            <div class="range-container size">
+                <p>Размер поля</p>
+                <input id="resize" type="range" min="3" max="41" step="2" value="15">
+            </div>
+            <div class="range-container animation">
+                <p>Скорость анимации</p>
+                <input id="animation" type="range" min="1" max="100" step="1" value="90">
+            </div>
+        </div>
         <div class="center-container"><div class="maze"></div></div>
         <div class="right-container">
             <button id="create-maze">Сгенерировать лабиринт</button>
@@ -26,6 +35,16 @@
         </div>
     </div>
     
+    <div id="notification" class="custom-notification hidden">
+        <div class="custom-notification-box">
+            <p>Это алгоритм А*</p>
+            <p>Он находит кратчайший путь от начальной точки до конечной.</p>
+            <p>Ты можешь сгенерировать лабиринт или построить его самостоятельно,</p>
+            <p>изменить старт и финиш, нажав на них и переместив на нужное место,</p>
+            <p>а затем запустить алгоритм и посмотреть, как он работает.</p>
+            <button id="close-notification">OK</button>
+        </div>
+    </div>
 </body>
 
 </html>
