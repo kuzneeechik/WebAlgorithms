@@ -42,6 +42,8 @@ let graph = [];
 
 async function aStar(map, size)
 {
+    cleanPaintedCells(size);
+
     graph = [];
 
     let finish = 0;
@@ -169,25 +171,39 @@ async function aStar(map, size)
         }
     }
 
-    let currentCell = finish;
-    let way = [];
-    way.push(currentCell);
-
-    while (currentCell != start)
+    if (cameFrom[finish])
     {
-        currentCell = cameFrom[currentCell];
-        way.push(currentCell); 
+        let currentCell = finish;
+        let way = [];
+        way.push(currentCell);
+
+        while (currentCell != start)
+        {
+            currentCell = cameFrom[currentCell];
+            way.push(currentCell); 
+        }
+
+        for (let i = way.length - 1; i >= 0; i--)
+        {
+            const iCell = Math.floor(way[i] / size);
+            const jCell = way[i] % size;
+
+            getElementOfCssGrid(iCell, jCell, size).classList.add("cell-way");
+            await sleep(animationSpeed);
+        } 
     }
-
-    for (let i = way.length - 1; i >= 0; i--)
+    else
     {
-        const iCell = Math.floor(way[i] / size);
-        const jCell = way[i] % size;
-
-        getElementOfCssGrid(iCell, jCell, size).classList.add("cell-finish");
-        await sleep(animationSpeed);
-    } 
+        new Toast({
+            title: "Упс...",
+            text: "Путь не найден :(",
+            theme: 'default',
+            autohide: true,
+            interval: 10000
+        });
+    }
 }
+    
 
 const toRun = document.querySelector('#to-run');
 const runAStar = async () => await aStar(map, size);
@@ -196,4 +212,24 @@ toRun.addEventListener('click', runAStar);
 async function sleep(ms) 
 {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function cleanPaintedCells(size)
+{
+    for (let i = 0; i < size; i++)
+    {
+        for (let j = 0; j < size; j++)
+        {
+            const cell = getElementOfCssGrid(i, j, size);
+
+            if (cell.classList.contains("cell-process") ||
+                cell.classList.contains("cell-border") ||
+                cell.classList.contains("cell-way"))
+            {
+                cell.classList.remove("cell-process");
+                cell.classList.remove("cell-border");
+                cell.classList.remove("cell-way");
+            }
+        }
+    }
 }

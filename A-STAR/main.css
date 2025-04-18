@@ -101,7 +101,7 @@ a {
     background-color: #F9FF8A; 
 }
 
-.cell-finish {
+.cell-finish, .cell-way {
     background-color: #EF474A;
     cursor: cell;
 }
