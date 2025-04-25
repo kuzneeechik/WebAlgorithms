@@ -72,9 +72,10 @@ h1 {
 
 .digits {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); 
     gap: 15px;
-    padding: 20px;
+    justify-items: center;
+    text-align: center;
 }
 
 .digit {
@@ -123,3 +124,42 @@ h1 {
 button:hover {
     transform: scale(1.1);
 }
+
+.custom-notification {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.4);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1;
+}
+
+.custom-notification-box {
+background-color: white;
+padding: 30px;
+border-radius: 20px;
+border: 7px solid #6f188c;
+font-family: "Unbounded", sans-serif;
+color: #333;
+text-align: center;
+}
+
+.custom-notification-box button {
+margin-top: 20px;
+padding: 10px 20px;
+font-weight: bold;
+border: none;
+border-radius: 10px;
+background-color: #6599cd;
+color: white;
+cursor: pointer;
+transition: 300ms;
+}
+
+.hidden {
+    display: none;
+  }
