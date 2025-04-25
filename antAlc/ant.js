@@ -15,12 +15,16 @@ function closeNotification() {
 const inform = document.getElementById('learn-more');
 inform.addEventListener('click', showNotification);
 
+function showWarning() {
+    document.getElementById("notificationText").innerText = "Необходимо добавить как минимум 2 точки для построения маршрута!";
+    document.getElementById("myNotification").classList.remove("hidden");
+}
 
-function drawPoint(x, y, size = 6)
+function drawPoint(x, y)
 {
     ctx.beginPath();
-    ctx.arc(x, y, size, 0, Math.PI * 2);
-    ctx.fillStyle = "white";
+    ctx.arc(x, y, 8, 0, Math.PI * 2);
+    ctx.fillStyle = "blue";
     ctx.fill();
     ctx.closePath();
 }
@@ -44,7 +48,10 @@ buttons[1].addEventListener('click', clearCanvas);
 
 function start() 
 {
-    
+    if (points.length < 2) {
+    showWarning();
+    return;
+}
     const matrix = createMatrix(points);
     const alg = new generalOptions(matrix);
 
@@ -97,7 +104,6 @@ class generalOptions
         this.pheromon = 1;
         this.Q = 5.0;
         this.deletePheromon = 0.2;
-
         this.sizeMatrix = matrix.length;
         this.pheromonsList = Array.from({length:this.sizeMatrix}, () => Array(this.sizeMatrix).fill(this.pheromon));
         this.ants = [];
@@ -147,7 +153,6 @@ class generalOptions
                 {
                     ant.choiceWay(this.graph, this.pheromonsList, this.alpha, this.betta);
                 }
-
                 if (!bestWay || ant.path.distance < bestWay.distance)
                 {
                     bestWay = JSON.parse(JSON.stringify(ant.path));
