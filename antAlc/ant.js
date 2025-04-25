@@ -4,7 +4,7 @@ const buttons = document.querySelectorAll('.buttonsFor');
 let points = [];
 
 function showNotification() {
-    document.getElementById("notificationText").innerText = "Данный алгоритм находит кратчайший замкнутый путь \n между всеми точками, которые ты поставишь!";
+    document.getElementById("notificationText").innerText = "Данный алгоритм находит кратчайший замкнутый путь \n между всеми точками, которые вы поставите!";
     document.getElementById("myNotification").classList.remove("hidden");
 }
 
@@ -24,7 +24,7 @@ function drawPoint(x, y, size = 6)
 {
     ctx.beginPath();
     ctx.arc(x, y, size, 0, Math.PI * 2);
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "blue";
     ctx.fill();
     ctx.closePath();
 }
@@ -33,7 +33,7 @@ canVas.addEventListener('click', (event) => {
     const rect = canVas.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-    points.push({ x: x, y: y });
+    points.push({ x, y });
     drawPoint(x, y);
 });
 
@@ -46,14 +46,12 @@ function clearCanvas()
 buttons[0].addEventListener('click', start);
 buttons[1].addEventListener('click', clearCanvas);
 
-
 function start() 
 {
     if (points.length < 2) {
-        showWarning();
-        return;
-    }
-
+    showWarning();
+    return;
+}
     const matrix = createMatrix(points);
     const alg = new generalOptions(matrix);
 
@@ -104,19 +102,19 @@ class generalOptions
         this.betta = 2.0;
         this.graph = matrix;
         this.pheromon = 1;
-        this.Q = 5.0; //феромоны кот будут увеличиваться на ребре каждом
-        this.deletePheromon = 0.3;
+        this.Q = 5.0;
+        this.deletePheromon = 0.2;
         this.sizeMatrix = matrix.length;
         this.pheromonsList = Array.from({length:this.sizeMatrix}, () => Array(this.sizeMatrix).fill(this.pheromon));
         this.ants = [];
     }
 
-    createAnts(count)
+    creatAnts(count)
     {
         this.ants = [];
         for(let i = 0; i < count; i++)
         {
-            const ant = new Ant(i);
+            const ant = new Ant(i % this.graph.length);
             ant.visited.push(ant.startPeak);
             ant.path.ListPeakWay.push(ant.startPeak);
             this.ants.push(ant);
@@ -155,7 +153,6 @@ class generalOptions
                 {
                     ant.choiceWay(this.graph, this.pheromonsList, this.alpha, this.betta);
                 }
-
                 if (!bestWay || ant.path.distance < bestWay.distance)
                 {
                     bestWay = JSON.parse(JSON.stringify(ant.path));
