@@ -11,7 +11,7 @@ function showNotification() {
 function closeNotification() {
     document.getElementById("myNotification").classList.add("hidden");
 }
-
+notificationButton.addEventListener('click', closeNotification);
 const inform = document.getElementById('learn-more');
 inform.addEventListener('click', showNotification);
 
