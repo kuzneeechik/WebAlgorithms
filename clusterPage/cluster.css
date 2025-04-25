@@ -59,7 +59,7 @@ h1 {
 
 canvas {
     margin-top: 2vw;
-    background-color: #ffffff; 
+    background-color: #b4b4b4; 
     cursor: crosshair;
     width: 600px; 
     height: 400px; 
@@ -107,4 +107,41 @@ button:hover {
     text-align: center;
 }
 
+.custom-notification {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.4);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1;
+}
 
+.custom-notification-box {
+background-color: white;
+padding: 30px;
+border-radius: 20px;
+border: 7px solid #4683BA;
+font-family: "Unbounded", sans-serif;
+color: #333;
+text-align: center;
+}
+
+.custom-notification-box button {
+margin-top: 20px;
+padding: 10px 20px;
+font-weight: bold;
+border: none;
+border-radius: 10px;
+background-color: #AB5CBD;
+color: white;
+cursor: pointer;
+transition: 300ms;
+}
+
+.hidden {
+    display: none;
+  }

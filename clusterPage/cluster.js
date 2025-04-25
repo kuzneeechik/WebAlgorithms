@@ -7,11 +7,30 @@ const kInput = document.getElementById('kInput');
 let points = [];
 let clusters = []; 
 
-function drawPoint(x, y, color = '#262E31', radius = 5) { 
+document.getElementById("learn-more").addEventListener("click", showNotification);
+document.getElementById("close-notification").addEventListener("click", closeNotification);
+document.getElementById("notification").addEventListener("click", closeNotification);
+document.querySelector(".custom-notification-box").addEventListener("click", (e) => e.stopPropagation());
+
+function showNotification() 
+document.getElementById("notification").classList.remove("hidden");
+}
+
+function closeNotification() 
+{
+document.getElementById("notification").classList.add("hidden");
+}
+
+function drawPoint(x, y, color = '#262E31', radius = 6, strokeColor = '#262E31', strokeWidth = 2) {
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, 2 * Math.PI);
     ctx.fillStyle = color;
     ctx.fill();
+
+    ctx.strokeStyle = strokeColor;
+    ctx.lineWidth = strokeWidth;
+    ctx.stroke();
+
     ctx.closePath();
 }
 
