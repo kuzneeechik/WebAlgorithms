@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Unbounded", sans-serif; 
+    font-weight: 800;
+    color: #fff;
+    background-color: #262E31;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    max-width: 100dvw;
+    height: 11dvh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    flex-direction: row;
+    background-color: #7BBD5C;
+}
+
+h1 {
+    font-size: 4dvw;
+}
+
+#learn-more {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+#learn-more:hover {
+    transform: scale(1.05);
+}
+
+#back {
+    transition: 500ms;
+}
+
+#back:hover {
+    transform: scale(1.05);
+}
+
+.custom-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.custom-notification-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    border: 7px solid #4683BA;
+    font-family: "Unbounded", sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.custom-notification-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: #AB5CBD;
+    color: white;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.hidden {
+    display: none;
+}
+
+.right-container {
+    position: relative;
+    width: 40%;
+    height: 89dvh;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 7dvh;
+}
+
+.left-container {
+    position: relative;
+    width: 60%;
+    height: 89dvh;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tree-container {
+    height: 80%;
+    width: 80%;
+    padding: 3%;
+    background-color: #E5F3FF;
+    border: 1dvh solid #3A7844;
+    overflow: auto;
+}
+
+.tree-node {
+    margin-left: 5dvw;
+    width: 4.5dvw;
+}
+
+.tree-node-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1dvh;
+}
+
+.tree-node-block {
+    background-color: #3A7844;
+    padding: 30% 45%;
+    border-radius: 30px;
+    transition: 400ms;
+}
+
+.tree-node-block:hover {
+    transform: scale(1.1);
+}
+
+.select-node {
+    border: 0.7dvh solid #FF934B;
+}
+
+.tree-node-info span {
+    font-weight: 500;
+    color: #262E31;
+}

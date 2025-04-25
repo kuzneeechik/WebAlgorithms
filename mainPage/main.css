@@ -87,7 +87,7 @@ h1 {
     border-radius: 60px;
     width: 19dvw;
     height: 10dvh;
-    border-width: 1dvh;
+    border-width: 1.2dvh;
     border-color: #952336;
     transition: 500ms;
     cursor: pointer;
