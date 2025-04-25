@@ -20,10 +20,10 @@ function showWarning() {
     document.getElementById("myNotification").classList.remove("hidden");
 }
 
-function drawPoint(x, y, size = 6)
+function drawPoint(x, y)
 {
     ctx.beginPath();
-    ctx.arc(x, y, size, 0, Math.PI * 2);
+    ctx.arc(x, y, 8, 0, Math.PI * 2);
     ctx.fillStyle = "blue";
     ctx.fill();
     ctx.closePath();

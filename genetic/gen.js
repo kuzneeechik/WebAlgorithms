@@ -18,11 +18,11 @@ function showWarning() {
     document.getElementById("myNotification").classList.remove("hidden");
 }
 
-function draw(x, y, size = 6)
+function draw(x, y)
 {
     ctx.fillStyle = "green";
     ctx.beginPath();
-    ctx.arc(x, y, 4, 0, Math.PI * 2);
+    ctx.arc(x, y, 8, 0, Math.PI * 2);
     ctx.fill();
     ctx.closePath();
 }
