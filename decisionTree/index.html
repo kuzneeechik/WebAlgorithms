@@ -21,7 +21,10 @@
 
     <div class="algorithm">
         <div class="right-container">
-            <input type="file" accept=".csv" onchange="readFile(this)">
+            <label class="input-file">
+                <input type="file" id="read-file" accept=".csv">		
+                <span id="choose">Выберите файл...</span>
+            </label>
             <button id="create">Построить дерево</button>
             <input type="text" id="states" autocomplete="off">
             <button id="select">Узнать ответ</button>

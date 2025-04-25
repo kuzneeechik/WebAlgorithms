@@ -13,6 +13,9 @@ function closeNotification()
     document.getElementById("notification").classList.add("hidden");
 }
 
+const fileFromInput = document.getElementById("read-file");
+document.getElementById("read-file").addEventListener("change", () => {readFile(fileFromInput);});
+
 let csvFile = [];
 let head = [];
 
@@ -358,11 +361,11 @@ function createTree(percent, findPath = false)
 
                 if (i === 0)
                 {
-                    currentChild = new Node(`<= ${states[maxColumn][0]}`, newData, newHead);
+                    currentChild = new Node(`<=${states[maxColumn][0]}`, newData, newHead);
                 }
                 else
                 {
-                    currentChild = new Node(`> ${states[maxColumn][0]}`, newData, newHead);
+                    currentChild = new Node(`>${states[maxColumn][0]}`, newData, newHead);
                 }
                  
                 if (newData.length > 0)
@@ -435,7 +438,7 @@ document.getElementById("create").addEventListener("click", () =>
 
 document.getElementById("optimization").addEventListener("click", () => 
 {
-    optimizationPercent = 0.65;
+    optimizationPercent = 0.7;
     createTree(optimizationPercent);
 });
 
@@ -516,16 +519,16 @@ function findAnswer(root)
 
         if (current.children[0].state[0] === "<" || current.children[0].state[0] === ">")
         {
-            const number = Number(current.children[0].state.split("<= ").join('').split("> ").join(''));
+            const number = Number(current.children[0].state.split("<=").join('').split(">").join(''));
             state = Number(state);
 
             console.log(state);
 
             if (state > number && !Number.isNaN(state))
-                state = "> " + number;
+                state = ">" + number;
 
             else if (!Number.isNaN(state))
-                state = "<= " + number;
+                state = "<=" + number;
         }
 
         for (let i = 0; i < current.children.length; i++)

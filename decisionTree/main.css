@@ -155,20 +155,80 @@ h1 {
 }
 
 .algorithm button {
-    background: #BE4848;
     color: #fff;
     font-family: "Unbounded", sans-serif; 
-    font-size: 1.2dvw;
+    font-size: 1.3dvw;
     font-weight: 700;
     border-radius: 60px;
     width: 19dvw;
-    height: 8dvh;
+    height: 9dvh;
     border-width: 1dvh;
-    border-color: #952336;
     transition: 500ms;
     cursor: pointer;
 }
 
 .algorithm button:hover {
     transform: scale(1.1);
+}
+
+#create {
+    background-color: #71c04c;
+    border-color: #3A7844;
+}
+
+#select {
+    background-color: #fd8535;
+    border-color: #b9510c;
+}
+
+#optimization {
+    background-color: #3887cc;
+    border-color: #095597;
+}
+
+.input-file span {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 2dvh;
+	vertical-align: middle;
+	color: #fff;
+	text-align: center;
+	border-radius: 60px;
+	background-color: #d44747;
+	line-height: 22px;
+	height: 7dvh;
+	padding: 1.5dvh 2dvw;
+	box-sizing: border-box;
+	border: 0.5dvh solid #8d2121;
+}
+
+.input-file {
+    transition: 500ms;
+}
+
+.input-file:hover {
+    transform: scale(1.1);
+}
+
+.input-file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+#states {
+    font-family: "Unbounded", sans-serif; 
+    font-size: 1dvw;
+    font-weight: 700;
+    border-radius: 60px;
+    width: 20dvw;
+    height: 7dvh;
+    border: 0.5dvh solid #333;
+    padding: 0% 3%;
 }
