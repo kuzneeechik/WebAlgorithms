@@ -1,93 +1,161 @@
-html {
-    width: 100%;
-    height: 100%;
-    font-family: 'Vela Sans', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
 
 body {
-    background-image: linear-gradient(to bottom, #ff69b4, #87ceeb);
-    background-color: #070707;
-    color: white;
+    font-family: "Unbounded", sans-serif;
+    font-weight: 800;
+    color: #fff;
+    background-color: #262E31;
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
 }
 
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    height: 11dvh;
+    min-height: 80px;
+    background-color: #C95F5F;
+    padding: 0 20px;
     position: relative;
-    height: 100px;
-    background-color: black;
-    padding-left: 100px;
 }
 
-.antHead {
+.title {
     position: absolute;
-    left: 20px;
-    height: 80px;
-    width: auto;
-    max-height: 80%;
-    top: 50%;
-    transform: translateY(-50%);
-    object-fit: contain;
+    left: 50%;
+    transform: translateX(-50%);
 }
-.text-container {
-    width: 100%;
-    font-size: 20px ;
-    text-align: center;
-    margin-left: -100px;
-}
+
 h1 {
     margin: 0;
     padding: 0;
-    color: rgb(247, 195, 233);
+    color: white;
+    font-size: clamp(18px, 4vw, 40px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.gradient-container {
 
-    height: 100vh;
+#learn-more {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 500ms;
+    height: 50px;
+    margin-right: 20;
+}
+
+#learn-more:hover {
+    transform: scale(1.05);
+}
+
+#back {
+    transition: 500ms;
+    height: 50px;
+}
+
+#back:hover {
+    transform: scale(1.05);
+}
+
+.algorithm-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: center;
+    min-height: 89dvh;
+    padding: 20px;
+    gap: 50px;
+    margin-top: -1%;
 }
 
-.antHead {
-    width: 15%;
-    height: auto;
-    margin-right: 20px;
-
+.canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    order: 1;
 }
 
 #canVas {
-    border: 7px solid rgb(22, 32, 71);
-    background-color: #6255d3;
+    border: 7px solid rgb(165, 52, 52);
+    background-color: rgb(208, 152, 152);
     width: 600px;
     height: 400px;
-    margin-top: 40px;
+    max-width: 100%;
+    cursor: pointer;
 }
 
 .buttons {
     display: flex;
     gap: 40px;
-    margin-top: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+    order: 2;
 }
 
 .buttonsFor {
-    border: 3px solid rgb(167, 31, 128);
-    background-color: #ffc0cb;
-    border-radius: 100px;
-    padding: 2em 4em;
-    cursor: pointer;
-    font-size: 14px;
-    color: rgb(80, 27, 66);
-    transition: transform 0.5s, color 0.5s, background-color 0.5s;
+    background: #5553CF;
+    font-family: "Unbounded", sans-serif;
+    color: white;
+    font-size: 2.3dvh;
+    font-weight: 700;
+    border-radius: 60px;
+    width: 19dvw;
+    height: 10dvh;
+    border-width: 10px;
+    border-color: #200f7e;
+    transition: 500ms;
+    font-size: 1.5dvw;
+
 }
 
 .buttonsFor:hover {
-    background-color: #c62ba5;
-    border: 3px solid rgb(239, 135, 188);
-    color: white;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
+
+.custom-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.custom-notification-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    border: 7px solid #4683BA;
+    font-family: "Unbounded", sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.custom-notification-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: #763585;
+    color: white;
+    cursor: pointer;
+    transition: 300ms;
+}
+.hidden{
+    display: none;
+}
+

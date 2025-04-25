@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <title>Генетический Алгоритм</title>
+</head>
+<body>
+  <header class="header-container">
+    <a href="../index.html" id="back"><img src="imgGen/back.png" alt="Назад"></a>
+    <h1 class="title">Генетический Алгоритм</h1>
+    <button id="learn-more"><img src="imgGen/learnMore.png" alt="Узнать больше"></button>
+</header>
+<div class="algorithm-container">
+  <div class="buttons">
+    <button class="buttonsFor">Запустить</button>
+    <button class="buttonsFor">Очистить</button>
+  </div>
+  <div class="canvas-wrapper">
+    <canvas id="canVas" width="600" height="400"></canvas>
+  </div>
+</div>
+<div id="myNotification" class="custom-notification hidden">
+    <div class="custom-notification-box">
+        <p id="notificationText"></p>
+        <button id="notificationButton">OK</button>
+    </div>
+</div>
+<script src="gen.js"></script>
+</body>
+</html>
