@@ -11,7 +11,9 @@ function showNotification() {
 function closeNotification() {
     document.getElementById("myNotification").classList.add("hidden");
 }
+
 notificationButton.addEventListener('click', closeNotification);
+
 const inform = document.getElementById('learn-more');
 inform.addEventListener('click', showNotification);
 
@@ -19,6 +21,7 @@ function showWarning() {
     document.getElementById("notificationText").innerText = "Необходимо добавить как минимум 2 точки для построения маршрута!";
     document.getElementById("myNotification").classList.remove("hidden");
 }
+
 
 function drawPoint(x, y)
 {

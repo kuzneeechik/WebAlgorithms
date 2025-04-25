@@ -24,7 +24,6 @@ a {
     min-height: 80px;
     background-color: #E5C067;
     padding: 0 20px;
-    border-bottom: 3px solid #ca9008;
     position: relative;
 }
 
@@ -74,7 +73,7 @@ h1 {
     min-height: 89dvh;
     padding: 20px;
     gap: 50px;
-    margin-top: -4%;
+    margin-top: -1.2%;
 }
 
 .canvas-wrapper {
@@ -113,7 +112,7 @@ h1 {
     border-width: 10px;
     border-color: #1c5b13;
     transition: 500ms;
-
+    font-size: 1.5dvw;
 }
 
 .buttonsFor:hover {

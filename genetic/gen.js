@@ -9,6 +9,12 @@ function showNotification()
     document.getElementById("myNotification").classList.remove("hidden");
 }
 
+notificationButton.addEventListener('click', closeNotification);
+
+const inform = document.getElementById('learn-more');
+inform.addEventListener('click', showNotification);
+
+
 function closeNotification()
 {
     document.getElementById("myNotification").classList.add("hidden");
@@ -26,8 +32,6 @@ function draw(x, y)
     ctx.fill();
     ctx.closePath();
 }
-const inform = document.getElementById('learn-more');
-inform.addEventListener('click', showNotification);
 
 canVas.addEventListener("click", function(event)
 {
