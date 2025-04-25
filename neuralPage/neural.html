@@ -13,13 +13,20 @@
     </header>
     
     <div class="container">
-        <canvas id="canvas" width="300" height="300"></canvas>
-        <div class="digits" id="digitsContainer"></div>
+        <div class="content">
+            <div class="buttons">
+                <button id="clearButton">Очистить</button>
+                <button id="recognizeButton">Распознать</button>
+            </div>
+            <div class="canvas-container">
+                <canvas id="canvas" width="400" height="400"></canvas>
+            </div>
+            <div class="digits-container">
+                <div class="digits" id="digitsContainer"></div>
+            </div>
+        </div>
     </div>
-    <div class="buttons">
-        <button id="clearButton">Очистить холст</button>
-        <button id="recognizeButton">Распознать цифру</button>
-    </div>
+    
     <div id="notification" class="custom-notification hidden">
         <div class="custom-notification-box">
             <p>Это алгоритм Нейросеть</p>
@@ -27,7 +34,7 @@
             <p>Ты рисуешь цифру на доске из</p>
             <p>пикселей. Нейронная сеть анализирует, какие</p>
             <p>пиксели закрашены, и на основе этого</p>
-            <p>определяет, какая цифра была нарисаванна.</p>
+            <p>определяет, какая цифра была нарисована.</p>
             <button id="close-notification">OK</button>
         </div>
     </div>
