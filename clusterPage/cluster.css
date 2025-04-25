@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Unbounded", sans-serif; 
+    font-weight: 800;
+    color: #ffffff;
+    background-color: #262E31;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    max-width: 100dvw;
+    height: 11dvh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    flex-direction: row;
+    background-color: #2e9d32;
+}
+
+h1 {
+    font-size: 4dvw;
+}
+
+#learn-more {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+#learn-more:hover {
+    transform: scale(1.05);
+}
+
+#back {
+    transition: 500ms;
+}
+
+#back:hover {
+    transform: scale(1.05);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#canvas {
+    margin-top: 2vw;
+    background-color: #b8b3b3; 
+    cursor: crosshair;
+    width: 600px; 
+    height: 400px; 
+    outline: #2e9d32 5px solid;
+}
+
+.controls button {
+    background: #2e9d32; 
+    color: #fff;
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.15dvw; 
+    font-weight: 700;
+    border-radius: 60px;
+    width: 15dvw; 
+    height: 10dvh; 
+    border-width: 1dvh;
+    border-color: #184d1a;
+    transition: 500ms;
+    cursor: pointer;
+    margin: 0 10px;  
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.controls {
+    text-align: center;
+    padding: 20px;
+} 
+
+#kInput {
+    background: #b8b3b3;
+    color: #262E31;
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    border-radius: 12px;
+    width: 140px;
+    height: 48px;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: text;
+    margin: 0 10px;
+    padding: 0 20px;
+    backdrop-filter: blur(8px);outline: #2e9d32 7px solid;
+}
+
+.custom-notification {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.4);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1;
+}
+
+.custom-notification-box {
+background-color: white;
+padding: 30px;
+border-radius: 20px;
+border: 7px solid #2e9d32;
+font-family: "Unbounded", sans-serif;
+color: #333;
+text-align: center;
+}
+
+.custom-notification-box button {
+margin-top: 20px;
+padding: 10px 20px;
+font-weight: bold;
+border: none;
+border-radius: 10px;
+background-color: #AB5CBD;
+color: white;
+cursor: pointer;
+transition: 300ms;
+}
+
+.hidden {
+    display: none;
+  }
