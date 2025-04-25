@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+
+body {
+    font-family: "Unbounded", sans-serif;
+    font-weight: 800;
+    color: #fff;
+    background-color: #262E31;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 11dvh;
+    min-height: 80px;
+    background-color: #E5C067;
+    padding: 0 20px;
+    border-bottom: 3px solid #ca9008;
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: clamp(18px, 4vw, 40px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#learn-more {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 500ms;
+    height: 50px;
+    margin-right: 20;
+}
+
+#learn-more:hover {
+    transform: scale(1.05);
+}
+
+#back {
+    transition: 500ms;
+    height: 50px;
+}
+
+#back:hover {
+    transform: scale(1.05);
+}
+
+.algorithm-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 89dvh;
+    padding: 20px;
+    gap: 50px;
+    margin-top: -4%;
+}
+
+.canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    order: 1;
+}
+
+#canVas {
+    border: 7px solid #d49607;
+    background-color: #dfcca1;
+    width: 600px;
+    height: 400px;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    order: 2;
+}
+
+.buttonsFor {
+    background: #378f3d;
+    font-family: "Unbounded", sans-serif;
+    color: white;
+    font-size: 2.3dvh;
+    font-weight: 700;
+    border-radius: 60px;
+    width: 19dvw;
+    height: 10dvh;
+    border-width: 10px;
+    border-color: #1c5b13;
+    transition: 500ms;
+
+}
+
+.buttonsFor:hover {
+    transform: scale(1.1);
+}
+
+.custom-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.custom-notification-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    border: 7px solid #68dd58;
+    font-family: "Unbounded", sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.custom-notification-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: #dc6f09;
+    color: white;
+    cursor: pointer;
+    transition: 300ms;
+}
+.hidden{
+    display: none;
+}

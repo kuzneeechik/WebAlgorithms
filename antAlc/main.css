@@ -24,7 +24,7 @@ a {
     min-height: 80px;
     background-color: #C95F5F;
     padding: 0 20px;
-    border-bottom: 3px solid #C95F5F;
+    border-bottom: 3px solid rgb(165, 52, 52);
     position: relative;
 }
 
@@ -44,14 +44,14 @@ h1 {
     text-overflow: ellipsis;
 }
 
+
 #learn-more {
     background: none;
     border: none;
     cursor: pointer;
     transition: 500ms;
-    width: 40px;
-    height: 40px;
-    margin-right: 20px;
+    height: 50px;
+    margin-right: 20;
 }
 
 #learn-more:hover {
@@ -60,8 +60,7 @@ h1 {
 
 #back {
     transition: 500ms;
-    width: 40px;
-    height: 40px;
+    height: 50px;
 }
 
 #back:hover {
@@ -75,18 +74,20 @@ h1 {
     justify-content: center;
     min-height: 89dvh;
     padding: 20px;
-    gap: 40px;
+    gap: 50px;
+    margin-top: -4%;
 }
 
 .canvas-wrapper {
     display: flex;
     justify-content: center;
     width: 100%;
+    order: 1;
 }
 
 #canVas {
-    border: 7px solid #952336;
-    background-color: #C95F5F;
+    border: 7px solid rgb(165, 52, 52);
+    background-color: rgb(208, 152, 152);
     width: 600px;
     height: 400px;
     max-width: 100%;
@@ -98,6 +99,7 @@ h1 {
     gap: 40px;
     flex-wrap: wrap;
     justify-content: center;
+    order: 2;
 }
 
 .buttonsFor {
@@ -148,7 +150,7 @@ h1 {
     font-weight: bold;
     border: none;
     border-radius: 10px;
-    background-color: #AB5CBD;
+    background-color: #763585;
     color: white;
     cursor: pointer;
     transition: 300ms;
@@ -156,3 +158,4 @@ h1 {
 .hidden{
     display: none;
 }
+
