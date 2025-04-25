@@ -38,10 +38,14 @@ function readFile(input)
             else
                 csvFile.push(cells);
         }
+
+        document.getElementById("states").placeholder = head.slice(0, -1).join(";");
     }
 }
 
-function createTree(percent)
+let optimizationPercent = 1;
+
+function createTree(percent, findPath = false)
 {
     document.querySelector(".tree-container").innerHTML = '';
 
@@ -395,10 +399,22 @@ function createTree(percent)
     }
 
     drawTree(root);
+
+    if (findPath)
+        findAnswer(root);
 }
 
-document.getElementById("create").addEventListener("click", () => {createTree(1);});
-document.getElementById("optimization").addEventListener("click", () => {createTree(0.65);});
+document.getElementById("create").addEventListener("click", () => 
+{
+    optimizationPercent = 1; 
+    createTree(optimizationPercent);
+});
+
+document.getElementById("optimization").addEventListener("click", () => 
+{
+    optimizationPercent = 0.65;
+    createTree(optimizationPercent);
+});
 
 function drawTree(root)
 {
@@ -444,4 +460,63 @@ function createNodeHTML(node)
     result.appendChild(info);
 
     return result;
+}
+
+document.getElementById("select").addEventListener("click", () => createTree(optimizationPercent, true));
+
+function findAnswer(root)
+{
+    const inputInfo = document.getElementById("states").value.split(';');
+    
+    let current = root;
+
+    while (current.children.length > 0)
+    {
+        let state = inputInfo[head.indexOf(current.name)];
+        let flag = false;
+
+        if (current.children[0].state[0] === "<" || current.children[0].state[0] === ">")
+        {
+            const number = Number(current.children[0].state.split("<= ").join('').split("> ").join(''));
+            state = Number(state);
+
+            console.log(state);
+
+            if (state > number && !Number.isNaN(state))
+                state = "> " + number;
+
+            else if (!Number.isNaN(state))
+                state = "<= " + number;
+        }
+
+        for (let i = 0; i < current.children.length; i++)
+        {
+            if (current.children[i].state === state)
+            {
+                document.getElementById(current.name + current.state)
+                    .querySelector(".tree-node-block").classList.add("select-node");
+                
+                current = current.children[i];
+                flag = true;
+
+                break;
+            }
+        }
+
+        if (!flag)
+        {
+            new Toast({
+                title: "Упс...",
+                text: "Невозможно совершить полный обход :(",
+                theme: 'default',
+                autohide: true,
+                interval: 10000
+            });
+
+            break;
+        }
+    }
+
+    document.getElementById(current.name + current.state)
+            .querySelector(".tree-node-block").classList.add("select-node");
 }

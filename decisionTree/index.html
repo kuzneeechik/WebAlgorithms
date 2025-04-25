@@ -7,6 +7,9 @@
     <title>Дерево решений</title>
     <link rel="stylesheet" href="main.css">
     <script src="tree.js" defer></script>
+
+    <link rel="stylesheet" href="../libs/Toast/toast.min.css">
+    <script src="../libs/Toast/toast.min.js"></script>
 </head>
 
 <body>
@@ -20,7 +23,7 @@
         <div class="right-container">
             <input type="file" accept=".csv" onchange="readFile(this)">
             <button id="create">Построить дерево</button>
-            <input type="text" autocomplete="off">
+            <input type="text" id="states" autocomplete="off">
             <button id="select">Узнать ответ</button>
             <button id="optimization">Оптимизировать размер</button>
         </div>
