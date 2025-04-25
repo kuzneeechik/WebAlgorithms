@@ -12,12 +12,11 @@ document.getElementById("close-notification").addEventListener("click", closeNot
 document.getElementById("notification").addEventListener("click", closeNotification);
 document.querySelector(".custom-notification-box").addEventListener("click", (e) => e.stopPropagation());
 
-function showNotification() 
+function showNotification() {
 document.getElementById("notification").classList.remove("hidden");
 }
 
-function closeNotification() 
-{
+function closeNotification() {
 document.getElementById("notification").classList.add("hidden");
 }
 
