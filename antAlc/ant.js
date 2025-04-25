@@ -4,7 +4,7 @@ const buttons = document.querySelectorAll('.buttonsFor');
 let points = [];
 
 function showNotification() {
-    document.getElementById("notificationText").innerText = "Данный алгоритм находит кратчайший замкнутый путь \n между всеми точками, которые вы поставите!";
+    document.getElementById("notificationText").innerText = "Данный алгоритм находит кратчайший замкнутый путь \n между всеми точками, которые ты поставишь!";
     document.getElementById("myNotification").classList.remove("hidden");
 }
 
