@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дерево решений</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="tree.js" defer></script>
+
+    <link rel="stylesheet" href="../libs/Toast/toast.min.css">
+    <script src="../libs/Toast/toast.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" id="back"><img src="img/back.png" alt=""></a>
+        <h1>Дерево решений</h1>
+        <button id="learn-more"><img src="img/learnMore.png" alt=""></button>
+    </header>
+
+    <div class="algorithm">
+        <div class="right-container">
+            <input type="file" accept=".csv" onchange="readFile(this)">
+            <button id="create">Построить дерево</button>
+            <input type="text" id="states" autocomplete="off">
+            <button id="select">Узнать ответ</button>
+            <button id="optimization">Оптимизировать размер</button>
+        </div>
+        <div class="left-container">
+            <div class="tree-container"></div>
+        </div>
+    </div>
+
+    <div id="notification" class="custom-notification hidden">
+        <div class="custom-notification-box">
+            <p>Это дерево решений.</p>
+            <p>Оно строится на основе твоих входных данных в формате csv текста и может</p>
+            <p>определять наиболее вероятный исход событий при заданных условиях.</p>
+            <p>Заполнять все условия необязательно.</p>
+            <p>Кроме того, ты можешь оптимизировать размер дерева, чтобы убрать критерии,</p>
+            <p>которые не играют важной роли.</p>
+            <button id="close-notification">OK</button>
+        </div>
+    </div>
+</body>
+
+</html>
