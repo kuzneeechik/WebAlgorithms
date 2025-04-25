@@ -18,6 +18,9 @@ let head = [];
 
 function readFile(input) 
 {
+    csvFile = [];
+    head = [];
+
     let file = input.files[0];
 
     let reader = new FileReader();
@@ -27,7 +30,7 @@ function readFile(input)
     {
         let data = event.target.result;
 
-        let rows = data.split('\r\n');
+        let rows = data.trim().split(/\r?\n/);
 
         for (let i = 0; i < rows.length - 1; i++)
         {
@@ -49,20 +52,26 @@ function createTree(percent, findPath = false)
 {
     document.querySelector(".tree-container").innerHTML = '';
 
-    function Node(state, data, headData)
+    class Node
     {
-        this.state = state;
-        this.name = '';
-        this.data = data;
-        this.headData = headData;
-        this.children = [];
-        this.parent = [];
+        constructor(state, data, headData)
+        {
+            this.state = state;
+            this.name = '';
+            this.data = data;
+            this.headData = headData;
+            this.children = [];
+            this.parent;
+        }
     }
 
-    function Tree(state, data, headData)
+    class Tree
     {
-        const node = new Node(state, data, headData);
-        this.root = node;
+        constructor(state, data, headData)
+        {
+            const node = new Node(state, data, headData);
+            this.root = node;
+        }
     }
 
     function myLog(value)
@@ -75,16 +84,16 @@ function createTree(percent, findPath = false)
 
     function isNumber(elem) 
     {
-        if (elem[0] >= "0" && elem[0] <= "9")
+        if ((elem[0] >= "0" && elem[0] <= "9") || typeof elem === "number")
             return true;
 
         return false;
     }
 
-    Tree(' ', csvFile, head);
+    const tree = new Tree(' ', csvFile, head);
 
     let queue = [];
-    queue.push(root);
+    queue.push(tree.root);
 
     function getNewNode(currentNode)
     {
@@ -115,6 +124,14 @@ function createTree(percent, findPath = false)
             
         if (currentNode.headData[0] === "Decision")
         {
+            if (countYes === countNo)
+            {
+                currentNode.name = "Yes/No";
+                return;
+            }
+
+            countYes > countNo ? currentNode.name = "Yes" : currentNode.name = "No";
+
             return;
         }
 
@@ -309,7 +326,7 @@ function createTree(percent, findPath = false)
 
         currentNode.name = currentNode.headData[maxColumn];
 
-        if (states[maxColumn].length === 1)
+        if (states[maxColumn].length === 1 && isNumber(states[maxColumn][0]))
         {
             for (let i = 0; i < 2; i++)
             {
@@ -347,11 +364,14 @@ function createTree(percent, findPath = false)
                 {
                     currentChild = new Node(`> ${states[maxColumn][0]}`, newData, newHead);
                 }
-                    
-                currentChild.parent = currentNode;
+                 
+                if (newData.length > 0)
+                {
+                    currentChild.parent = currentNode;
 
-                currentNode.children.push(currentChild);
-                queue.push(currentChild);
+                    currentNode.children.push(currentChild);
+                    queue.push(currentChild);
+                }
             }
         }
 
@@ -382,11 +402,14 @@ function createTree(percent, findPath = false)
                         newHead.push(currentNode.headData[j]);
                 }
 
-                let currentChild = new Node(states[maxColumn][i], newData, newHead);
-                currentChild.parent = currentNode;
-
-                currentNode.children.push(currentChild);
-                queue.push(currentChild);
+                if (newData.length > 0)
+                {
+                    let currentChild = new Node(states[maxColumn][i], newData, newHead);
+                    currentChild.parent = currentNode;
+    
+                    currentNode.children.push(currentChild);
+                    queue.push(currentChild);
+                }
             }
         }
     } 
@@ -398,10 +421,10 @@ function createTree(percent, findPath = false)
         getNewNode(current);
     }
 
-    drawTree(root);
+    drawTree(tree.root);
 
     if (findPath)
-        findAnswer(root);
+        findAnswer(tree.root);
 }
 
 document.getElementById("create").addEventListener("click", () => 
@@ -430,9 +453,17 @@ function drawTree(root)
     while (queue.length !== 0)
     {
         let currentNode = queue.shift();
-
-        document.getElementById(currentNode.parent.name + currentNode.parent.state)
-            .appendChild(createNodeHTML(currentNode));
+        
+        if (currentNode.parent === root)
+        {
+            document.getElementById(currentNode.parent.name + currentNode.parent.state)
+                .appendChild(createNodeHTML(currentNode));
+        } 
+        else
+        {
+            document.getElementById(currentNode.parent.name + currentNode.parent.state + currentNode.parent.parent.name + currentNode.parent.parent.state)
+                .appendChild(createNodeHTML(currentNode));
+        }
 
         for (let i = 0; i < currentNode.children.length; i++)
         {
@@ -446,7 +477,15 @@ function createNodeHTML(node)
     let result = document.createElement("div");
 
     result.className = "tree-node";
-    result.id = node.name + node.state;
+
+    if (node.parent !== undefined)
+    {
+        result.id = node.name + node.state + node.parent.name + node.parent.state;
+    }
+    else
+    {
+        result.id = node.name + node.state;
+    }
 
     let info = document.createElement("div");
 
@@ -493,8 +532,16 @@ function findAnswer(root)
         {
             if (current.children[i].state === state)
             {
-                document.getElementById(current.name + current.state)
-                    .querySelector(".tree-node-block").classList.add("select-node");
+                if (current === root)
+                {
+                    document.getElementById(current.name + current.state)
+                        .querySelector(".tree-node-block").classList.add("select-node");
+                } 
+                else
+                {
+                    document.getElementById(current.name + current.state + current.parent.name + current.parent.state)
+                        .querySelector(".tree-node-block").classList.add("select-node");
+                }
                 
                 current = current.children[i];
                 flag = true;
@@ -517,6 +564,14 @@ function findAnswer(root)
         }
     }
 
-    document.getElementById(current.name + current.state)
-            .querySelector(".tree-node-block").classList.add("select-node");
+    if (current.parent === undefined)
+        {
+            document.getElementById(current.name + current.state)
+                .querySelector(".tree-node-block").classList.add("select-node");
+        } 
+        else
+        {
+            document.getElementById(current.name + current.state + current.parent.name + current.parent.state)
+                .querySelector(".tree-node-block").classList.add("select-node");
+        }
 }
