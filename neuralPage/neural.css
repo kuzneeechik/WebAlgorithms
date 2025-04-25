@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Unbounded", sans-serif; 
+    font-weight: 800;
+    color: #ffffff;
+    background-color: #262E31;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    height: 11dvh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    background-color: #6f188c;
+}
+
+#learn-more {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+#learn-more:hover {
+    transform: scale(1.05);
+}
+
+#back {
+    transition: 500ms;
+}
+
+#back:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    font-size: 4dvw;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 60px; 
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 40px; 
+}
+
+#canvas {
+    background: #000;
+    border: 2px solid #6f188c;
+    box-shadow: 0 0 20px #6f188c;
+    cursor: crosshair;
+    touch-action: none;
+    width: 400px;
+    height: 400px;
+    image-rendering: pixelated;
+}
+
+.digits-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.digits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px; 
+    justify-items: center;
+    text-align: center;
+}
+
+.digit {
+    font-size: 2em; 
+    width: 60px; 
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(0, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.digit.active {
+    background: #6f188c;
+    box-shadow: 0 0 15px #6f188c; 
+    color: #000;
+}
+
+.buttons button {
+    background: #61187a; 
+    color: #fff;
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.2em; 
+    font-weight: 700;
+    border-radius: 50px;
+    width: 200px; 
+    height: 85px; 
+    border-width: 1dvh;
+    border-color: #3d0f4d;
+    transition: 500ms;
+    cursor: pointer;
+    padding: 0 15px; 
+}
+
+.buttons button:hover {
+    transform: scale(1.1); 
+}
+
+.custom-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.custom-notification-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    border: 7px solid #6599cd;
+    font-family: "Unbounded", sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.custom-notification-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: #6599cd;
+    color: white;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.hidden {
+    display: none;
+}
