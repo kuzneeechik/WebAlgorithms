@@ -8,6 +8,12 @@ function showNotification()
     document.getElementById("notificationText").innerText = "Данный алгоритм находит изменения путём отбора  \n лучших исходов и их модификаций!";
     document.getElementById("myNotification").classList.remove("hidden");
 }
+function algFinish()
+{
+    document.getElementById("notificationText").innerText = "Алгоритм остановлен!";
+    document.getElementById("myNotification").classList.remove("hidden");
+}
+
 
 notificationButton.addEventListener('click', closeNotification);
 
@@ -83,8 +89,8 @@ async function launch()
     const countPopulation = 500;
     const mutationProbability = 0.3;
 
-    let matrix = build(points);
-    let population = initial(matrix,countPopulation);
+    let matrix = building(points);
+    let population = create(matrix,countPopulation);
 
     for (let i = 0; i < countPopulation; i++)
     {
@@ -117,6 +123,7 @@ async function launch()
 
         await drawWay(population);
     }
+    algFinish('Алгоритм остановлен!')
 
 }
 
@@ -208,7 +215,7 @@ function mutation(child, mutationProbability)
     }
 }
 
-function initial(matrix, countPopulation)
+function create(matrix, countPopulation)
 {
     let population = [];
     const countPeak = [...Array(matrix.length).keys()];
@@ -244,7 +251,7 @@ function distance(matrix, chromosome)
     return distance;
 }
 
-function build(points)
+function building(points)
 {
     const size = points.length;
     let matrix = [];

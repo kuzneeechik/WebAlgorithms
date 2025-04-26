@@ -144,7 +144,7 @@ class generalOptions
             }
         }
     }
-    AntsAlgorithm(iteration = 100, antsCount = points.length)
+    AntsAlgorithm(iteration = 1000, antsCount = points.length)
     {
         let bestWay = null;
         for(let i = 0; i < iteration; i++)
